@@ -45,7 +45,13 @@
     <!-- Map Area (Fills the viewport background) -->
     <main class="main-content">
       <div id="map"></div>
-      
+
+      <!-- Indicador de carga de datos del mapa -->
+      <div id="map-loading" class="map-loading-pill glass-card" hidden aria-live="polite">
+        <span class="map-loading-spinner" aria-hidden="true"></span>
+        <span class="map-loading-text">Cargando establecimientos…</span>
+      </div>
+
       <!-- CONSOLIDATED LEFT CONTROL PANEL HUD (Floating on the map, left-top) -->
       <div class="left-hud-panel">
         

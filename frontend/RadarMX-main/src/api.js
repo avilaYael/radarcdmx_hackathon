@@ -231,7 +231,14 @@ export async function fetchEstablishmentsLayer() {
  * @param {Object} opts
  * @param {number} opts.lat - Latitud del centro de búsqueda
  * @param {number} opts.lng - Longitud del centro de búsqueda
- * @param {number} opts.radiusM - Radio de búsqueda en metros
+ * @param {number} [opts.radiusM] - Radio de búsqueda en metros (modo radio)
+ * @param {Object} [opts.bbox] - Caja delimitadora del viewport (modo rectángulo).
+ *   Cuando se provee, el backend filtra por el rectángulo en vez de un radio,
+ *   evitando el artefacto de "círculo" al recortar por page_size.
+ * @param {number} opts.bbox.minLat
+ * @param {number} opts.bbox.maxLat
+ * @param {number} opts.bbox.minLng
+ * @param {number} opts.bbox.maxLng
  * @param {number|string} [opts.codigoActividad] - Código de actividad exacto (SCIAN)
  * @param {string} [opts.usoDeSuelo] - Clave de uso de suelo exacta
  * @param {string} [opts.municipio] - Municipio/alcaldía exacto
@@ -243,22 +250,38 @@ export async function fetchEstablishmentsNearbyLayer({
   lat,
   lng,
   radiusM,
+  bbox,
   codigoActividad,
   usoDeSuelo,
   municipio,
   pageSize = 5000,
   offset = 0
 } = {}) {
-  if (!Number.isFinite(Number(lat)) || !Number.isFinite(Number(lng)) || !(Number(radiusM) > 0)) {
-    throw new Error('lat, lng y radiusM son requeridos para la búsqueda por cercanía');
+  const hasBBox = bbox
+    && Number.isFinite(Number(bbox.minLat)) && Number.isFinite(Number(bbox.maxLat))
+    && Number.isFinite(Number(bbox.minLng)) && Number.isFinite(Number(bbox.maxLng));
+
+  if (!Number.isFinite(Number(lat)) || !Number.isFinite(Number(lng))) {
+    throw new Error('lat y lng son requeridos para la búsqueda por cercanía');
+  }
+  if (!hasBBox && !(Number(radiusM) > 0)) {
+    throw new Error('se requiere radiusM o bbox para la búsqueda por cercanía');
   }
 
   const params = new URLSearchParams();
   params.set('lat', String(lat));
   params.set('lng', String(lng));
-  params.set('radius_m', String(radiusM));
   params.set('page_size', String(pageSize));
   params.set('offset', String(offset));
+
+  if (hasBBox) {
+    params.set('min_lat', String(bbox.minLat));
+    params.set('max_lat', String(bbox.maxLat));
+    params.set('min_lng', String(bbox.minLng));
+    params.set('max_lng', String(bbox.maxLng));
+  } else {
+    params.set('radius_m', String(radiusM));
+  }
 
   if (codigoActividad !== undefined && codigoActividad !== null && String(codigoActividad).trim() !== '') {
     params.set('codigo_actividad', String(codigoActividad).trim());

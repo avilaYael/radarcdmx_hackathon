@@ -3,8 +3,11 @@ package handlers
 import (
 	"database/sql"
 	"encoding/json"
+	"errors"
+	"fmt"
 	"log"
 	"net/http"
+	"net/url"
 	"strconv"
 	"strings"
 
@@ -134,10 +137,24 @@ func (h *ListEstablecimientoNearbyHandler) ServeHTTP(w http.ResponseWriter, r *h
 		return
 	}
 
-	radiusMeters, err := parseRequiredFloat(query.Get("radius_m"))
-	if err != nil || radiusMeters <= 0 {
-		http.Error(w, "invalid radius_m", http.StatusBadRequest)
+	// Bounding-box mode: when min/max lat/lng are all provided we filter by the
+	// viewport rectangle instead of a radius. This avoids the "disk" artifact
+	// caused by ORDER BY distance + LIMIT, which returns the nearest N points
+	// (a circle centered on the user) when the area holds more than page_size
+	// establecimientos. radius_m stays required only when no bbox is given.
+	bbox, hasBBox, err := parseBoundingBox(query)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
+	}
+
+	var radiusMeters float64
+	if !hasBBox {
+		radiusMeters, err = parseRequiredFloat(query.Get("radius_m"))
+		if err != nil || radiusMeters <= 0 {
+			http.Error(w, "invalid radius_m", http.StatusBadRequest)
+			return
+		}
 	}
 
 	pageSize := int64(20)
@@ -173,20 +190,36 @@ func (h *ListEstablecimientoNearbyHandler) ServeHTTP(w http.ResponseWriter, r *h
 		offset = parsed
 	}
 
+	// The SELECT always computes distance_m from POINT(?, ?), so lng/lat are the
+	// first two bind args regardless of mode.
 	whereClauses := []string{
 		"JSON_EXTRACT(e.ubicacion, '$.latitud') IS NOT NULL",
 		"JSON_EXTRACT(e.ubicacion, '$.longitud') IS NOT NULL",
-		`ST_Distance_Sphere(
+	}
+	args := []any{lng, lat}
+
+	orderBy := "distance_m ASC"
+	if hasBBox {
+		// Filter to the viewport rectangle and order by a non-spatial key so a
+		// page_size clip thins points out evenly rather than carving a circle.
+		whereClauses = append(whereClauses,
+			"CAST(JSON_UNQUOTE(JSON_EXTRACT(e.ubicacion, '$.latitud')) AS DECIMAL(12,8)) BETWEEN ? AND ?",
+			"CAST(JSON_UNQUOTE(JSON_EXTRACT(e.ubicacion, '$.longitud')) AS DECIMAL(12,8)) BETWEEN ? AND ?",
+		)
+		args = append(args, bbox.minLat, bbox.maxLat, bbox.minLng, bbox.maxLng)
+		// uuid is a random CHAR(36) PK, so a page_size clip yields a roughly
+		// uniform spatial sample across the viewport instead of a circle.
+		orderBy = "e.uuid ASC"
+	} else {
+		whereClauses = append(whereClauses, `ST_Distance_Sphere(
 			POINT(
 				CAST(JSON_UNQUOTE(JSON_EXTRACT(e.ubicacion, '$.longitud')) AS DECIMAL(12,8)),
 				CAST(JSON_UNQUOTE(JSON_EXTRACT(e.ubicacion, '$.latitud')) AS DECIMAL(12,8))
 			),
 			POINT(?, ?)
-		) <= ?`,
+		) <= ?`)
+		args = append(args, lng, lat, radiusMeters)
 	}
-
-	// First two ?'s belong to the SELECT's POINT(?, ?); next three to the WHERE clause's POINT(?, ?) <= ?
-	args := []any{lng, lat, lng, lat, radiusMeters}
 
 	if codigoActividad != nil {
 		whereClauses = append(whereClauses, "e.codigo_actividad = ?")
@@ -203,7 +236,7 @@ func (h *ListEstablecimientoNearbyHandler) ServeHTTP(w http.ResponseWriter, r *h
 		args = append(args, municipio)
 	}
 
-	finalQuery := listEstablecimientosNearbyQuerySelect + "\nWHERE " + strings.Join(whereClauses, "\n\tAND ") + "\nORDER BY distance_m ASC\nLIMIT ?, ?"
+	finalQuery := listEstablecimientosNearbyQuerySelect + "\nWHERE " + strings.Join(whereClauses, "\n\tAND ") + "\nORDER BY " + orderBy + "\nLIMIT ?, ?"
 	args = append(args, offset, pageSize)
 
 	rows, err := h.core.DB().QueryContext(r.Context(), finalQuery, args...)
@@ -265,6 +298,48 @@ func parseRequiredFloat(raw string) (float64, error) {
 		return 0, sql.ErrNoRows
 	}
 	return strconv.ParseFloat(raw, 64)
+}
+
+type boundingBox struct {
+	minLat, maxLat, minLng, maxLng float64
+}
+
+// parseBoundingBox reads the optional min_lat/max_lat/min_lng/max_lng query
+// params. It returns (box, true, nil) when all four are present and valid,
+// (zero, false, nil) when none are present, and an error when the set is
+// incomplete or out of range.
+func parseBoundingBox(query url.Values) (boundingBox, bool, error) {
+	keys := []string{"min_lat", "max_lat", "min_lng", "max_lng"}
+	present := 0
+	for _, k := range keys {
+		if query.Get(k) != "" {
+			present++
+		}
+	}
+	if present == 0 {
+		return boundingBox{}, false, nil
+	}
+	if present != len(keys) {
+		return boundingBox{}, false, errors.New("bounding box requires min_lat, max_lat, min_lng and max_lng")
+	}
+
+	vals := make([]float64, len(keys))
+	for i, k := range keys {
+		v, err := strconv.ParseFloat(query.Get(k), 64)
+		if err != nil {
+			return boundingBox{}, false, fmt.Errorf("invalid %s", k)
+		}
+		vals[i] = v
+	}
+
+	box := boundingBox{minLat: vals[0], maxLat: vals[1], minLng: vals[2], maxLng: vals[3]}
+	if box.minLat < -90 || box.maxLat > 90 || box.minLng < -180 || box.maxLng > 180 {
+		return boundingBox{}, false, errors.New("bounding box out of range")
+	}
+	if box.minLat > box.maxLat || box.minLng > box.maxLng {
+		return boundingBox{}, false, errors.New("bounding box min must be <= max")
+	}
+	return box, true, nil
 }
 
 func mapEstablecimientoModelToEntity(m repogen.Establecimiento) mainentity.Establecimiento {
