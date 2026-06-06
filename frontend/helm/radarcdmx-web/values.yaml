@@ -5,8 +5,11 @@ image:
   pullPolicy: Always
   tag: "latest"
   env:
+  - name: ADDR
+    value: ":4242"
+  # CONFIG points at the backend config dir mounted via volumes/volumeMounts below.
   - name: CONFIG
-    value: "/root/radarcdmx/config,/root/config/radarcdmx"
+    value: "/root/config/radarcdmx"
 
 imagePullSecrets:
   - name: ghcr-login-secret
@@ -28,14 +31,6 @@ service:
   type: ClusterIP
   port: 4242
   targetPort: 4242
-
-env:
-  - name: ADDR
-    value: ":4242"
-  # CONFIG points at the runtime backend config mounted from the secret below.
-  - name: CONFIG
-    value: "/root/config/radarcdmx"
-
 
 ingress:
   enabled: true

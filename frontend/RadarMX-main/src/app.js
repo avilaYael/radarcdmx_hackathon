@@ -35,6 +35,23 @@ const elHudLat = document.getElementById('hud-lat');
 const elHudLng = document.getElementById('hud-lng');
 const elHudZoom = document.getElementById('hud-zoom');
 
+// Indicador de carga de datos del mapa
+const elMapLoading = document.getElementById('map-loading');
+// Contador para soportar cargas concurrentes/solapadas sin parpadeo.
+let mapLoadingCount = 0;
+
+function showMapLoading() {
+  mapLoadingCount += 1;
+  if (elMapLoading) elMapLoading.hidden = false;
+}
+
+function hideMapLoading() {
+  mapLoadingCount = Math.max(0, mapLoadingCount - 1);
+  if (mapLoadingCount === 0 && elMapLoading) {
+    elMapLoading.hidden = true;
+  }
+}
+
 // Filtros de Búsqueda (HUD)
 const elFilterAlcaldia = document.getElementById('filter-alcaldia');
 const elFilterSector = document.getElementById('filter-sector');
@@ -211,10 +228,11 @@ async function initMap() {
 }
 
 async function loadMapLayers() {
+  showMapLoading();
   try {
     // 1. OBTENER DATOS DE LAS CAPAS (De nuestro resolvedor local)
     const marketsGeoJSON = await fetchMarketsLayer();
-    const establishmentsGeoJSON = await fetchEstablishmentsViewport();    
+    const establishmentsGeoJSON = await fetchEstablishmentsViewport();
 
     // 2. AÑADIR FUENTES AL MAPA
     map.addSource('markets-source', {
@@ -294,6 +312,8 @@ async function loadMapLayers() {
 
   } catch (error) {
     console.error('Error cargando las capas geográficas:', error);
+  } finally {
+    hideMapLoading();
   }
 }
 
@@ -1453,10 +1473,13 @@ async function applyFilters({ recenter = false } = {}) {
   }
 
   let baseEstablishments = { type: 'FeatureCollection', features: [] };
+  showMapLoading();
   try {
     baseEstablishments = await fetchEstablishmentsNearbyLayer(nearbyOpts);
   } catch (error) {
     console.warn('No se pudo consultar establecimientos cercanos.', error);
+  } finally {
+    hideMapLoading();
   }
 
   // 2. Filtrar las características (features)

@@ -58,14 +58,3 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
-
-{{/*
-Name of the secret holding the runtime CONFIG file.
-*/}}
-{{- define "radarcdmx-web.configSecretName" -}}
-{{- if .Values.config.existingSecret }}
-{{- .Values.config.existingSecret }}
-{{- else }}
-{{- printf "%s-config" (include "radarcdmx-web.fullname" .) }}
-{{- end }}
-{{- end }}
