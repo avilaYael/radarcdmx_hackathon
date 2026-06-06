@@ -1,0 +1,106 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/mklfarha/radarcdmx/frontend
+  pullPolicy: Always
+  tag: "latest"
+  env:
+  - name: CONFIG
+    value: "/root/radarcdmx/config,/root/config/radarcdmx"
+
+imagePullSecrets:
+  - name: ghcr-login-secret
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 4242
+  targetPort: 4242
+
+env:
+  - name: ADDR
+    value: ":4242"
+  # CONFIG points at the runtime backend config mounted from the secret below.
+  - name: CONFIG
+    value: "/root/config/radarcdmx"
+
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  hosts:
+    - host: radarcdmx.maykelfarha.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: radarcdmx-web-tls
+      hosts:
+        - radarcdmx.maykelfarha.com
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+  initialDelaySeconds: 5
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 3
+
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+  initialDelaySeconds: 3
+  periodSeconds: 5
+  timeoutSeconds: 3
+  failureThreshold: 3
+  
+
+# Additional volumes on the output Deployment definition.
+volumes:
+  - name: config
+    hostPath:
+      path: "/etc/config"
+
+# Additional volumeMounts on the output Deployment definition.
+volumeMounts:
+  - name: config
+    mountPath: "/root/config"
+    readOnly: true
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
