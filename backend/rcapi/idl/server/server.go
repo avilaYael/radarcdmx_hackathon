@@ -3,9 +3,10 @@ package server
 import (
 	"context"
 	"fmt"
+	"net"
+
 	"github.com/mklfarha/radarcdmx/backend/rcapi/core"
 	pb "github.com/mklfarha/radarcdmx/backend/rcapi/idl/gen"
-	"net"
 
 	"go.uber.org/config"
 	"go.uber.org/fx"
@@ -43,7 +44,7 @@ func New(params Params) *grpc.Server {
 	log := params.Logger
 	s := grpc.NewServer(
 
-		grpc.UnaryInterceptor(AuthUnaryServerInterceptor(params.Auth, []string{})),
+	//grpc.UnaryInterceptor(AuthUnaryServerInterceptor(params.Auth, []string{})),
 	)
 	params.Lifecycle.Append(fx.Hook{
 		OnStart: func(ctx context.Context) error {
