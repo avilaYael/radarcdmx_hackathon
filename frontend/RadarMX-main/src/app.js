@@ -260,14 +260,7 @@ async function loadMapLayers() {
       },
       paint: {
         'circle-radius': 6,
-        'circle-color': [
-          'match',
-          ['get', 'sector'],
-          'Alimentos', '#3b82f6', // Azul
-          'Entretenimiento', '#f43f5e', // Rosa
-          'Manufactura', '#a855f7', // Violeta
-          '#ef4444' // Rojo
-        ],
+        'circle-color': '#802A95',        
         'circle-stroke-color': '#000000',
         'circle-stroke-width': 1
       }
