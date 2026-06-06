@@ -12,5 +12,9 @@ var Module = fx.Module("handlers",
 	fx.Provide(
 		route.As(NewHomeHandler),
 		route.As(NewHealthHandler),
+		route.As(NewListSectoresHandler),
+		route.As(NewListActividadHandler),
+		route.As(NewListEstablecimientoHandler),
+		route.As(NewListEstablecimientoNearbyHandler),
 	),
 )

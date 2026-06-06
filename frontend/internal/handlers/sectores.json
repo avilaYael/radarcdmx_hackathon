@@ -1,0 +1,82 @@
+[
+  {
+    "codigo_sector": ["11"],
+    "sector": "Agricultura, cría y explotación de animales, aprovechamiento forestal, pesca y caza"
+  },
+  {
+    "codigo_sector": ["21"],
+    "sector": "Minería"
+  },
+  {
+    "codigo_sector": ["22"],
+    "sector": "Generación, transmisión, distribución y comercialización de energía eléctrica, suministro de agua y de gas natural por ductos al consumidor final"
+  },
+  {
+    "codigo_sector": ["23"],
+    "sector": "Construcción"
+  },
+  {
+    "codigo_sector": ["31", "32", "33"],
+    "sector": "Industrias manufactureras"
+  },  
+  {
+    "codigo_sector": ["43"],
+    "sector": "Comercio al por mayor"
+  },
+  {
+    "codigo_sector": ["46"],
+    "sector": "Comercio al por menor"
+  },
+  {
+    "codigo_sector": ["48","49"],
+    "sector": "Transportes, correos y almacenamiento"
+  },  
+  {
+    "codigo_sector": ["51"],
+    "sector": "Información en medios masivos"
+  },
+  {
+    "codigo_sector": ["52"],
+    "sector": "Servicios financieros y de seguros"
+  },
+  {
+    "codigo_sector": ["53"],
+    "sector": "Servicios inmobiliarios y de alquiler de bienes muebles e intangibles"
+  },
+  {
+    "codigo_sector": ["54"],
+    "sector": "Servicios profesionales, científicos y técnicos"
+  },
+  {
+    "codigo_sector": ["55"],
+    "sector": "Dirección y administración de grupos empresariales o corporativos"
+  },
+  {
+    "codigo_sector": ["56"],
+    "sector": "Servicios de apoyo a los negocios y manejo de residuos, y servicios de remediación"
+  },
+  {
+    "codigo_sector": ["61"],
+    "sector": "Servicios educativos"
+  },
+  {
+    "codigo_sector": ["62"],
+    "sector": "Servicios de salud y de asistencia social"
+  },
+  {
+    "codigo_sector": ["71"],
+    "sector": "Servicios de esparcimiento, culturales y deportivos, y otros servicios recreativos"
+  },
+  {
+    "codigo_sector": ["72"],
+    "sector": "Servicios de alojamiento temporal y de preparación de alimentos y bebidas"
+  },
+  {
+    "codigo_sector": ["81"],
+    "sector": "Otros servicios excepto actividades gubernamentales"
+  },
+  {
+    "codigo_sector": ["93"],
+    "sector": "Actividades legislativas, gubernamentales, de impartición de justicia y de organismos internacionales y extraterritoriales"
+  }
+]
