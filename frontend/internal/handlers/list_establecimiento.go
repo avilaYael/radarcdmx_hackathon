@@ -185,7 +185,8 @@ func (h *ListEstablecimientoNearbyHandler) ServeHTTP(w http.ResponseWriter, r *h
 		) <= ?`,
 	}
 
-	args := []any{lng, lat, radiusMeters}
+	// First two ?'s belong to the SELECT's POINT(?, ?); next three to the WHERE clause's POINT(?, ?) <= ?
+	args := []any{lng, lat, lng, lat, radiusMeters}
 
 	if codigoActividad != nil {
 		whereClauses = append(whereClauses, "e.codigo_actividad = ?")

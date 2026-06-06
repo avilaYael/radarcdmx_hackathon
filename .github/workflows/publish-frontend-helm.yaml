@@ -1,0 +1,44 @@
+name: radarcdmx frontend helm
+
+env:
+  REGISTRY: ghcr.io
+  GCR_IMAGE: ghcr.io/${{ github.repository }}/helm
+  APP_NAME: radarcdmx-web-helm
+  HELM_NAME: radarcdmx-web
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - frontend/helm/radarcdmx-web/**
+      - .github/workflows/publish-frontend-helm.yaml
+
+jobs:
+  release:
+    permissions:
+      contents: read
+      packages: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Log in to the Container registry
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Helm
+        uses: azure/setup-helm@v3
+      - name: Login to GHCR using helm
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ghcr.io --username ${{ github.actor }} --password-stdin
+      - name: Package helm chart to local registry
+        run: |
+          helm package ${{ github.workspace }}/frontend/helm/${{ env.HELM_NAME }}/
+      - name: Publish chart to GHCR
+        run: |
+          helm push ${{ env.HELM_NAME }}-$(grep 'version:' ${{ github.workspace }}/frontend/helm/${{ env.HELM_NAME }}/Chart.yaml | tail -n1 | awk '{ print $2 }').tgz oci://${{ env.GCR_IMAGE }}

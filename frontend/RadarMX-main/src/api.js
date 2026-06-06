@@ -368,6 +368,39 @@ export async function fetchUsosDeSueloCatalog() {
 }
 
 /**
+ * Compara dos municipios/alcaldías usando el endpoint /api/municipios/compare.
+ * Devuelve, por cada municipio, el total de establecimientos, una estimación de
+ * empleados (a partir del límite superior de los rangos per_ocu) y el conteo de
+ * establecimientos por sector económico.
+ *
+ * @param {string} municipioA - Nombre exacto del primer municipio
+ * @param {string} municipioB - Nombre exacto del segundo municipio
+ * @returns {Promise<Array<Object>|null>} Arreglo con 2 comparaciones, o null si falla
+ */
+export async function fetchCompareMunicipios(municipioA, municipioB) {
+  const a = String(municipioA || '').trim();
+  const b = String(municipioB || '').trim();
+  if (!a || !b) {
+    return null;
+  }
+
+  const params = new URLSearchParams();
+  params.set('a', a);
+  params.set('b', b);
+
+  try {
+    const payload = await fetchJSON(`${API_BASE}/municipios/compare?${params.toString()}`);
+    if (Array.isArray(payload?.municipios)) {
+      return payload.municipios;
+    }
+  } catch (error) {
+    console.warn('No se pudo cargar /api/municipios/compare.', error);
+  }
+
+  return null;
+}
+
+/**
  * Obtiene las estadísticas comparativas de Alcaldías para el Dashboard
  * @param {string} alcaldiaName - Nombre de la alcaldía
  */

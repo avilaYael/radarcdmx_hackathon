@@ -1,0 +1,8 @@
+tmp/
+import
+*.log
+RadarMX-main/node_modules/
+RadarMX-main/dist/
+.air.toml
+.claude/
+.DS_Store

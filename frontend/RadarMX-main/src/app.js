@@ -1,8 +1,8 @@
 import {
   fetchMarketsLayer,
-  fetchEstablishmentsLayer,
   fetchEstablishmentsNearbyLayer,
   fetchBoroughStats,
+  fetchCompareMunicipios,
   fetchSectoresCatalog,
   fetchActividadesCatalog,
   fetchMunicipiosCatalog,
@@ -24,16 +24,12 @@ let dynamicSectorCatalog = null;
 let currentActividadOptions = [];
 
 // --- ELEMENTOS DE LA INTERFAZ DE USUARIO ---
-const elMapStyle = document.getElementById('map-style');
 const elBtnSettings = document.getElementById('btn-settings');
 const elModalSettings = document.getElementById('modal-settings');
 const elBtnCloseSettings = document.getElementById('btn-close-settings');
 const elInputToken = document.getElementById('mapbox-token-input');
 const elBtnSaveToken = document.getElementById('btn-save-token');
 const elBtnClearToken = document.getElementById('btn-clear-token');
-
-const elSearchInput = document.getElementById('address-search');
-const elSearchBtn = document.getElementById('search-btn');
 
 const elHudLat = document.getElementById('hud-lat');
 const elHudLng = document.getElementById('hud-lng');
@@ -187,7 +183,7 @@ async function initMap() {
   try {
     map = new maplibregl.Map({
       container: 'map',
-      style: getStyleConfig(elMapStyle.value, mapboxToken),
+      style: getStyleConfig('light', mapboxToken),
       center: cdmxCenter,
       zoom: defaultZoom,
       pitch: 15
@@ -218,7 +214,7 @@ async function loadMapLayers() {
   try {
     // 1. OBTENER DATOS DE LAS CAPAS (De nuestro resolvedor local)
     const marketsGeoJSON = await fetchMarketsLayer();
-    const establishmentsGeoJSON = await fetchEstablishmentsLayer();
+    const establishmentsGeoJSON = await fetchEstablishmentsViewport();    
 
     // 2. AÑADIR FUENTES AL MAPA
     map.addSource('markets-source', {
@@ -296,8 +292,34 @@ async function loadMapLayers() {
     // 4. CONFIGURAR INTERACCIONES (CLIC EN PUNTOS)
     configureMapInteractions();
 
+    // 5. RECARGAR ESTABLECIMIENTOS AL MOVER EL MAPA
+    let moveEndTimer = null;
+    map.on('moveend', () => {
+      clearTimeout(moveEndTimer);
+      moveEndTimer = setTimeout(() => applyFilters(), 400);
+    });
+
   } catch (error) {
     console.error('Error cargando las capas geográficas:', error);
+  }
+}
+
+/**
+ * Carga los establecimientos visibles en el viewport actual del mapa.
+ */
+async function fetchEstablishmentsViewport() {
+  const center = map.getCenter();
+  const bounds = map.getBounds();
+  const radiusM = Math.max(center.distanceTo(bounds.getNorthEast()), 2500);
+  try {
+    return await fetchEstablishmentsNearbyLayer({
+      lat: center.lat,
+      lng: center.lng,
+      radiusM
+    });
+  } catch (error) {
+    console.warn('No se pudo cargar establecimientos del viewport:', error);
+    return { type: 'FeatureCollection', features: [] };
   }
 }
 
@@ -481,26 +503,99 @@ async function updateBoroughComparison() {
   const bA = elCompareSelectA.value;
   const bB = elCompareSelectB.value;
 
-  const statsA = await fetchBoroughStats(bA);
-  const statsB = await fetchBoroughStats(bB);
+  const setText = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+  };
 
-  if (!statsA || !statsB) return;
+  // Establecimientos, empleados y desglose por sector provienen del backend
+  // (datos reales). Población, mercados y cumplimiento siguen estimándose con
+  // fetchBoroughStats mientras no existan endpoints dedicados.
+  const [comparison, statsA, statsB] = await Promise.all([
+    fetchCompareMunicipios(bA, bB),
+    fetchBoroughStats(bA),
+    fetchBoroughStats(bB)
+  ]);
 
-  // Llenar datos en el grid comparador
-  document.getElementById('comp-val-pop-a').textContent = statsA.population.toLocaleString('es-MX');
-  document.getElementById('comp-val-pop-b').textContent = statsB.population.toLocaleString('es-MX');
+  const compareA = comparison?.[0] || null;
+  const compareB = comparison?.[1] || null;
 
-  document.getElementById('comp-val-est-a').textContent = statsA.totalEstablishments.toLocaleString('es-MX');
-  document.getElementById('comp-val-est-b').textContent = statsB.totalEstablishments.toLocaleString('es-MX');
+  // Población (estimada)
+  if (statsA) setText('comp-val-pop-a', statsA.population.toLocaleString('es-MX'));
+  if (statsB) setText('comp-val-pop-b', statsB.population.toLocaleString('es-MX'));
 
-  document.getElementById('comp-val-mkt-a').textContent = statsA.publicMarkets;
-  document.getElementById('comp-val-mkt-b').textContent = statsB.publicMarkets;
+  // Establecimientos (reales si hay backend, si no fallback estimado)
+  const estA = compareA ? compareA.total_establecimientos : statsA?.totalEstablishments;
+  const estB = compareB ? compareB.total_establecimientos : statsB?.totalEstablishments;
+  if (estA != null) setText('comp-val-est-a', Number(estA).toLocaleString('es-MX'));
+  if (estB != null) setText('comp-val-est-b', Number(estB).toLocaleString('es-MX'));
 
-  document.getElementById('comp-val-comp-a').textContent = `${statsA.complianceRate}%`;
-  document.getElementById('comp-val-comp-b').textContent = `${statsB.complianceRate}%`;
+  // Mercados (estimado)
+  if (statsA) setText('comp-val-mkt-a', statsA.publicMarkets);
+  if (statsB) setText('comp-val-mkt-b', statsB.publicMarkets);
 
-  document.getElementById('comp-val-emp-a').textContent = statsA.activeEmployees.toLocaleString('es-MX');
-  document.getElementById('comp-val-emp-b').textContent = statsB.activeEmployees.toLocaleString('es-MX');
+  // Cumplimiento SEDUVI (estimado)
+  if (statsA) setText('comp-val-comp-a', `${statsA.complianceRate}%`);
+  if (statsB) setText('comp-val-comp-b', `${statsB.complianceRate}%`);
+
+  // Trabajadores aproximados (reales si hay backend, si no fallback estimado)
+  const empA = compareA ? compareA.empleados_aproximados : statsA?.activeEmployees;
+  const empB = compareB ? compareB.empleados_aproximados : statsB?.activeEmployees;
+  if (empA != null) setText('comp-val-emp-a', Number(empA).toLocaleString('es-MX'));
+  if (empB != null) setText('comp-val-emp-b', Number(empB).toLocaleString('es-MX'));
+
+  renderSectorComparison(compareA, compareB);
+}
+
+// Renderiza el desglose de establecimientos por sector para ambos municipios.
+function renderSectorComparison(compareA, compareB) {
+  const grid = document.getElementById('compare-sectors-grid');
+  if (!grid) return;
+
+  if (!compareA || !compareB) {
+    grid.innerHTML = `
+      <div class="compare-row">
+        <div class="compare-col-lbl" style="grid-column: 1 / -1; text-align: center;">
+          No se pudo cargar el desglose por sector.
+        </div>
+      </div>`;
+    return;
+  }
+
+  // Unir los sectores de ambos municipios conservando un orden estable.
+  const totalsA = new Map(compareA.sectores.map((s) => [s.sector, s.total]));
+  const totalsB = new Map(compareB.sectores.map((s) => [s.sector, s.total]));
+
+  const order = [];
+  const seen = new Set();
+  [...compareA.sectores, ...compareB.sectores].forEach((s) => {
+    if (!seen.has(s.sector)) {
+      seen.add(s.sector);
+      order.push(s.sector);
+    }
+  });
+
+  if (order.length === 0) {
+    grid.innerHTML = `
+      <div class="compare-row">
+        <div class="compare-col-lbl" style="grid-column: 1 / -1; text-align: center;">
+          Sin establecimientos registrados.
+        </div>
+      </div>`;
+    return;
+  }
+
+  grid.innerHTML = order.map((sector) => {
+    const a = totalsA.get(sector) || 0;
+    const b = totalsB.get(sector) || 0;
+    const label = sector.length > 38 ? `${sector.slice(0, 38)}…` : sector;
+    return `
+      <div class="compare-row">
+        <div class="compare-col-val">${a.toLocaleString('es-MX')}</div>
+        <div class="compare-col-lbl" title="${sector}">${label}</div>
+        <div class="compare-col-val">${b.toLocaleString('es-MX')}</div>
+      </div>`;
+  }).join('');
 }
 
 // --- CARGADOR DE CSV LOCAL (FRONTEND) ---
@@ -728,96 +823,10 @@ function saveToHistory(report) {
 }
 
 
-// --- BUSCADOR ---
-async function handleSearch() {
-  const query = elSearchInput.value.trim();
-  if (!query) return;
-
-  const coordsRegex = /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
-  
-  if (coordsRegex.test(query)) {
-    const parts = query.split(',');
-    const lat = parseFloat(parts[0].trim());
-    const lng = parseFloat(parts[1].trim());
-    
-    const genericProps = {
-      name: 'Búsqueda por Coordenada',
-      rfc: 'RFC-BUSQUEDA-' + Math.floor(Math.random()*1000),
-      sector: 'Comercio',
-      employees: 5,
-      founded: 2024,
-      fiscalStatus: 'Activa'
-    };
-    
-    triggerComplianceAudit(lat, lng, genericProps);
-    return;
-  }
-
-  // Búsqueda de dirección aproximada en CDMX
-  const formattedQuery = `${query}, Ciudad de México, México`;
-
-  if (mapboxToken) {
-    try {
-      const response = await fetch(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(formattedQuery)}.json?access_token=${mapboxToken}&limit=1&language=es`
-      );
-      if (response.ok) {
-        const json = await response.json();
-        if (json.features && json.features.length > 0) {
-          const [lng, lat] = json.features[0].center;
-          const genericProps = {
-            name: json.features[0].text,
-            rfc: 'RFC-BUSQUEDA-' + Math.floor(Math.random()*1000),
-            sector: 'Comercio',
-            employees: 8,
-            founded: 2024,
-            fiscalStatus: 'Activa',
-            zone: json.features[0].place_name
-          };
-          triggerComplianceAudit(lat, lng, genericProps);
-          return;
-        }
-      }
-    } catch (e) {
-      console.error('Error buscando dirección:', e);
-    }
-  }
-
-  // Fallback con Nominatim
-  try {
-    const response = await fetch(
-      `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(formattedQuery)}&limit=1`,
-      { headers: { 'Accept-Language': 'es' } }
-    );
-    if (response.ok) {
-      const json = await response.json();
-      if (json && json.length > 0) {
-        const lat = parseFloat(json[0].lat);
-        const lng = parseFloat(json[0].lon);
-        const genericProps = {
-          name: json[0].display_name.split(',')[0],
-          rfc: 'RFC-BUSQUEDA-' + Math.floor(Math.random()*1000),
-          sector: 'Comercio',
-          employees: 10,
-          founded: 2023,
-          fiscalStatus: 'Activa',
-          zone: json[0].display_name
-        };
-        triggerComplianceAudit(lat, lng, genericProps);
-        return;
-      }
-    }
-  } catch (e) {
-    console.error('Error buscando dirección en Nominatim:', e);
-  }
-
-  alert('No pudimos geolocalizar la dirección. Escribe coordenadas exactas (ej. 19.4326, -99.1332) o el nombre de una colonia/calle conocida de la CDMX.');
-}
-
 // --- EVENT LISTENERS ---
 function registerEventListeners() {
   // Modal de Configuración
-  elBtnSettings.addEventListener('click', () => elModalSettings.classList.add('active'));
+  elBtnSettings?.addEventListener('click', () => elModalSettings.classList.add('active'));
   elBtnCloseSettings.addEventListener('click', () => elModalSettings.classList.remove('active'));
   elModalSettings.addEventListener('click', (e) => {
     if (e.target === elModalSettings) elModalSettings.classList.remove('active');
@@ -844,30 +853,24 @@ function registerEventListeners() {
     }
   });
 
-  // Eventos de Filtros de Búsqueda
-  elFilterAlcaldia.addEventListener('change', applyFilters);
+  // Eventos de Filtros de Búsqueda (recentran la cámara sobre los resultados)
+  elFilterAlcaldia.addEventListener('change', () => applyFilters({ recenter: true }));
   elFilterSector.addEventListener('change', async () => {
     updateSectorDescription();
     await updateActividadDropdown();
-    await applyFilters();
+    await applyFilters({ recenter: true });
   });
   elFilterActividad.addEventListener('change', () => {
     updateActividadDescription();
-    applyFilters();
+    applyFilters({ recenter: true });
   });
-  elFilterSuelo.addEventListener('change', applyFilters);
+  elFilterSuelo.addEventListener('change', () => applyFilters({ recenter: true }));
 
   
 
   // Comparador territorial
   elCompareSelectA.addEventListener('change', updateBoroughComparison);
   elCompareSelectB.addEventListener('change', updateBoroughComparison);
-
-  // Buscador
-  elSearchBtn.addEventListener('click', handleSearch);
-  elSearchInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') handleSearch();
-  });
 
   // Botón resetear mapa
   elBtnResetMap?.addEventListener('click', () => {
@@ -1412,7 +1415,7 @@ async function updateActividadDropdown() {
   updateActividadDescription();
 }
 
-async function applyFilters() {
+async function applyFilters({ recenter = false } = {}) {
   if (!map) return;
 
   const alcaldia = elFilterAlcaldia.value;
@@ -1451,8 +1454,8 @@ async function applyFilters() {
       usoDeSuelo: suelo !== 'Todos' ? suelo : undefined
     });
   } catch (error) {
-    console.warn('No se pudo consultar establecimientos cercanos, usando capa completa.', error);
-    baseEstablishments = await fetchEstablishmentsLayer();
+    console.warn('No se pudo consultar establecimientos cercanos, usando viewport.', error);
+    //baseEstablishments = await fetchEstablishmentsViewport();
   }
 
   // 2. Filtrar las características (features)
@@ -1512,13 +1515,18 @@ async function applyFilters() {
   };
   map.getSource('establishments-source').setData(filteredGeoJSON);
 
-  // 4. Desplazar el mapa (Pan/FlyTo)
+  // 4. Desplazar el mapa (Pan/FlyTo) SOLO cuando un cambio de filtro lo solicita.
+  //    El refresco disparado por 'moveend' nunca mueve la cámara: hacerlo
+  //    provocaría un bucle (fitBounds -> moveend -> applyFilters -> fitBounds)
+  //    que aleja el zoom de forma indefinida.
+  if (!recenter) return;
+
   if (filteredFeatures.length > 0) {
     const coordinates = filteredFeatures.map(f => f.geometry.coordinates);
     const bounds = coordinates.reduce((acc, coord) => {
       return acc.extend(coord);
     }, new maplibregl.LngLatBounds(coordinates[0], coordinates[0]));
-    
+
     map.fitBounds(bounds, { padding: 80, maxZoom: 14, duration: 1200 });
   } else if (alcaldia !== 'Todos' && ALCALDIA_CENTERS[alcaldia]) {
     map.flyTo({

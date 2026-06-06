@@ -1,6 +1,6 @@
 # Radar CDMX | Dashboard de Análisis Territorial - SEDECO
 
-**Radar CDMX** es una plataforma frontend interactiva diseñada para la Secretaría de Desarrollo Económico (SEDECO) de la Ciudad de México. Permite auditar la correspondencia del uso de suelo comercial contra los polígonos de zonificación de SEDUVI y realizar análisis territoriales.
+**Radar CDMX** es una plataforma frontend interactiva diseñada para la Secretaría de Desarrollo Económico (SEDECO) de la Ciudad de México. Permite consultar la correspondencia del uso de suelo comercial contra los polígonos de zonificación de SEDUVI y realizar análisis territoriales.
 
 ## 🚀 Características
 - **Auditoría de Uso de Suelo**: Algoritmo geométrico de punto-en-polígono (Raycasting) que valida si la ubicación y giro de un comercio (DENUE) cumple con el uso de suelo asignado (H, HC, I, E).

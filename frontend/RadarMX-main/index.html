@@ -40,27 +40,6 @@
         </div>
       </div>
       
-      <!-- Search Box (Address / ZIP Code Search) -->
-      <div class="search-container">
-        <i data-lucide="search" class="search-icon"></i>
-        <input type="text" id="address-search" placeholder="Buscar calles, mercados o coordenadas en la CDMX..." autocomplete="off">
-        <button id="search-btn" class="btn btn-primary">Buscar</button>
-      </div>
-
-      <!-- Quick Actions -->
-      <div class="header-actions">
-        <div class="style-selector">
-          <select id="map-style" class="glass-select">
-            <option value="light" selected>Claro (Recomendado)</option>
-            <option value="dark">Oscuro Premium</option>
-            <option value="streets">Calles Voyager</option>
-          </select>
-        </div>
-        
-        <button id="btn-settings" class="btn-icon glass-card" title="Configuración de Token Mapbox">
-          <i data-lucide="settings"></i>
-        </button>
-      </div>
     </header>
 
     <!-- Map Area (Fills the viewport background) -->
@@ -134,7 +113,7 @@
 
       <div class="map-instructions-toast glass-card">
         <i data-lucide="info" class="text-info"></i>
-        <span>Haz clic en un establecimiento del mapa para auditar su uso de suelo.</span>
+        <span>Haz clic en un establecimiento del mapa para consultar su uso de suelo.</span>
       </div>
 
       <!-- Dashboard Sidebar Panel (Floating Glass Panel) -->
@@ -154,7 +133,7 @@
                 <img src="./ajolotito.jpeg" alt="Ajolotito CDMX" style="width: 140px; height: auto; object-fit: contain; border-radius: 16px; margin-bottom: 0.5rem; filter: drop-shadow(0 4px 10px rgba(159, 34, 65, 0.15));">
               </div>
               <h3>Análisis Territorial CDMX</h3>
-              <p>Radar CDMX consolida datos de mercados, comercios y uso de suelo. Haz clic en sugerencias de corredores o audita comercios directamente en el mapa.</p>
+              <p>Radar CDMX consolida datos de comercios y uso de suelo. Haz clic en sugerencias de corredores o audita comercios directamente en el mapa.</p>
                             
             </div>
 
@@ -188,22 +167,12 @@
               </div>
 
               <!-- Comparison Card Grid -->
-              <div class="compare-results-grid">
-                <div class="compare-row">
-                  <div class="compare-col-val" id="comp-val-pop-a">--</div>
-                  <div class="compare-col-lbl">Población</div>
-                  <div class="compare-col-val" id="comp-val-pop-b">--</div>
-                </div>
+              <div class="compare-results-grid">                
                 <div class="compare-row">
                   <div class="compare-col-val" id="comp-val-est-a">--</div>
                   <div class="compare-col-lbl">Establecimientos</div>
                   <div class="compare-col-val" id="comp-val-est-b">--</div>
-                </div>
-                <div class="compare-row">
-                  <div class="compare-col-val" id="comp-val-mkt-a">--</div>
-                  <div class="compare-col-lbl">Mercados</div>
-                  <div class="compare-col-val" id="comp-val-mkt-b">--</div>
-                </div>
+                </div>               
                 <div class="compare-row">
                   <div class="compare-col-val" id="comp-val-comp-a">--%</div>
                   <div class="compare-col-lbl">Cumplimiento SEDUVI</div>
@@ -211,8 +180,20 @@
                 </div>
                 <div class="compare-row">
                   <div class="compare-col-val" id="comp-val-emp-a">--</div>
-                  <div class="compare-col-lbl">Trabajadores</div>
+                  <div class="compare-col-lbl">Trabajadores (aprox.)</div>
                   <div class="compare-col-val" id="comp-val-emp-b">--</div>
+                </div>
+              </div>
+
+              <!-- Desglose de establecimientos por sector económico (datos reales) -->
+              <div class="compare-sectors-block">
+                <h5 class="compare-sectors-title">Establecimientos por Sector</h5>
+                <div class="compare-results-grid" id="compare-sectors-grid">
+                  <div class="compare-row">
+                    <div class="compare-col-lbl compare-msg">
+                      Selecciona dos alcaldías para comparar.
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
