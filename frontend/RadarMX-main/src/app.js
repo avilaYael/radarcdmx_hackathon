@@ -302,18 +302,30 @@ async function loadMapLayers() {
  */
 async function fetchEstablishmentsViewport() {
   const center = map.getCenter();
-  const bounds = map.getBounds();
-  const radiusM = Math.max(center.distanceTo(bounds.getNorthEast()), 2500);
   try {
     return await fetchEstablishmentsNearbyLayer({
       lat: center.lat,
       lng: center.lng,
-      radiusM
+      bbox: getViewportBBox()
     });
   } catch (error) {
     console.warn('No se pudo cargar establecimientos del viewport:', error);
     return { type: 'FeatureCollection', features: [] };
   }
+}
+
+/**
+ * Devuelve la caja delimitadora (bounding box) del viewport actual del mapa,
+ * lista para enviarse al endpoint /nearby en modo rectángulo.
+ */
+function getViewportBBox() {
+  const bounds = map.getBounds();
+  return {
+    minLat: bounds.getSouth(),
+    maxLat: bounds.getNorth(),
+    minLng: bounds.getWest(),
+    maxLng: bounds.getEast()
+  };
 }
 
 function configureMapInteractions() {
@@ -1417,38 +1429,34 @@ async function applyFilters({ recenter = false } = {}) {
   const suelo = elFilterSuelo.value;
 
   // 1. Obtener los datos base de establecimientos en el área visible del mapa.
-  //    Usamos el endpoint /nearby con el centro y radio del viewport actual y
-  //    delegamos al backend los filtros que soporta de forma exacta (municipio,
-  //    código de actividad y uso de suelo). El sector se afina del lado del cliente.
-  let searchLat;
-  let searchLng;
-  let radiusM;
+  //    Sin alcaldía usamos el rectángulo (bbox) del viewport para evitar el
+  //    artefacto de "círculo" al recortar por page_size. Con una alcaldía
+  //    elegida (que puede quedar fuera del viewport) centramos por radio.
+  //    Delegamos al backend los filtros exactos (municipio, código de actividad
+  //    y uso de suelo); el sector se afina del lado del cliente.
+  const center = map.getCenter();
+  const nearbyOpts = {
+    lat: center.lat,
+    lng: center.lng,
+    municipio: alcaldia !== 'Todos' ? alcaldia : undefined,
+    codigoActividad: actividad !== 'Todos' ? actividad : undefined,
+    usoDeSuelo: suelo !== 'Todos' ? suelo : undefined
+  };
 
   if (alcaldia !== 'Todos' && ALCALDIA_CENTERS[alcaldia]) {
-    // Centrar la búsqueda en la alcaldía elegida (puede estar fuera del viewport).
-    [searchLng, searchLat] = ALCALDIA_CENTERS[alcaldia];
-    radiusM = 6000;
+    const [alcaldiaLng, alcaldiaLat] = ALCALDIA_CENTERS[alcaldia];
+    nearbyOpts.lat = alcaldiaLat;
+    nearbyOpts.lng = alcaldiaLng;
+    nearbyOpts.radiusM = 6000;
   } else {
-    const center = map.getCenter();
-    const bounds = map.getBounds();
-    searchLat = center.lat;
-    searchLng = center.lng;
-    radiusM = Math.max(center.distanceTo(bounds.getNorthEast()), 500);
+    nearbyOpts.bbox = getViewportBBox();
   }
 
-  let baseEstablishments;
+  let baseEstablishments = { type: 'FeatureCollection', features: [] };
   try {
-    baseEstablishments = await fetchEstablishmentsNearbyLayer({
-      lat: searchLat,
-      lng: searchLng,
-      radiusM,
-      municipio: alcaldia !== 'Todos' ? alcaldia : undefined,
-      codigoActividad: actividad !== 'Todos' ? actividad : undefined,
-      usoDeSuelo: suelo !== 'Todos' ? suelo : undefined
-    });
+    baseEstablishments = await fetchEstablishmentsNearbyLayer(nearbyOpts);
   } catch (error) {
-    console.warn('No se pudo consultar establecimientos cercanos, usando viewport.', error);
-    //baseEstablishments = await fetchEstablishmentsViewport();
+    console.warn('No se pudo consultar establecimientos cercanos.', error);
   }
 
   // 2. Filtrar las características (features)

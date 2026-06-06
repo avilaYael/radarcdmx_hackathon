@@ -4,77 +4,3950 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "market_la_merced",
-        "name": "Mercado de la Merced",
-        "stalls": 3800,
-        "borough": "Venustiano Carranza",
-        "category": "Canasta Básica / Flores",
-        "founded": 1957
+        "id": "market_centenario",
+        "name": "CENTENARIO",
+        "stalls": null,
+        "borough": "ÁLVARO OBREGÓN",
+        "category": "TRADICIONAL",
+        "founded": null
       },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-99.1192, 19.4258]
-      }
+      "geometry": null
     },
     {
       "type": "Feature",
       "properties": {
-        "id": "market_san_juan",
-        "name": "Mercado de San Juan (Especialidades)",
-        "stalls": 320,
-        "borough": "Cuauhtémoc",
-        "category": "Carnes Exóticas / Gourmet",
-        "founded": 1955
+        "id": "market_corpus_christi",
+        "name": "CORPUS CHRISTI",
+        "stalls": null,
+        "borough": "ÁLVARO OBREGÓN",
+        "category": "TRADICIONAL",
+        "founded": null
       },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-99.1418, 19.4302]
-      }
+      "geometry": null
     },
     {
       "type": "Feature",
       "properties": {
-        "id": "market_coyoacan",
-        "name": "Mercado de Coyoacán",
-        "stalls": 450,
-        "borough": "Coyoacán",
-        "category": "Artesanías / Comida Típica",
-        "founded": 1956
+        "id": "market_cristo_rey",
+        "name": "CRISTO REY",
+        "stalls": null,
+        "borough": "ÁLVARO OBREGÓN",
+        "category": "TRADICIONAL",
+        "founded": null
       },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-99.1625, 19.3501]
-      }
+      "geometry": null
     },
     {
       "type": "Feature",
       "properties": {
-        "id": "market_jamaica",
-        "name": "Mercado de Jamaica",
-        "stalls": 1150,
-        "borough": "Venustiano Carranza",
-        "category": "Flores y Plantas",
-        "founded": 1957
+        "id": "market_jalalpa_el_grande",
+        "name": "JALALPA EL GRANDE",
+        "stalls": null,
+        "borough": "ÁLVARO OBREGÓN",
+        "category": "TRADICIONAL",
+        "founded": null
       },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-99.1221, 19.4089]
-      }
+      "geometry": null
     },
     {
       "type": "Feature",
       "properties": {
-        "id": "market_beethoven",
-        "name": "Mercado Beethoven",
-        "stalls": 280,
-        "borough": "Cuauhtémoc",
-        "category": "Canasta Básica",
-        "founded": 1962
+        "id": "market_jose_maria_pino_suarez",
+        "name": "JOSÉ MARÍA PINO SUÁREZ",
+        "stalls": null,
+        "borough": "ÁLVARO OBREGÓN",
+        "category": "TRADICIONAL",
+        "founded": null
       },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-99.1367, 19.4568]
-      }
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_maria_g_garcia_de_ruiz",
+        "name": "MARÍA G. GARCÍA DE RUÍZ",
+        "stalls": null,
+        "borough": "ÁLVARO OBREGÓN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_melchor_muzquiz_zona",
+        "name": "MELCHOR MÚZQUIZ ZONA",
+        "stalls": null,
+        "borough": "ÁLVARO OBREGÓN",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_melchor_muzquiz_flores",
+        "name": "MELCHOR MÚZQUIZ (FLORES)",
+        "stalls": null,
+        "borough": "ÁLVARO OBREGÓN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_molino_de_santo_domingo",
+        "name": "MOLINO DE SANTO DOMINGO",
+        "stalls": null,
+        "borough": "ÁLVARO OBREGÓN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_olivar_del_conde",
+        "name": "OLIVAR DEL CONDE",
+        "stalls": null,
+        "borough": "ÁLVARO OBREGÓN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_panteon_jardin_flores",
+        "name": "PANTEÓN JARDÍN (FLORES)",
+        "stalls": null,
+        "borough": "ÁLVARO OBREGÓN",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_puente_colorado",
+        "name": "PUENTE COLORADO",
+        "stalls": null,
+        "borough": "ÁLVARO OBREGÓN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_santa_fe",
+        "name": "SANTA FE",
+        "stalls": null,
+        "borough": "ÁLVARO OBREGÓN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_santa_maria_nonoalco",
+        "name": "SANTA MARÍA NONOALCO",
+        "stalls": null,
+        "borough": "ÁLVARO OBREGÓN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_seis_de_enero_de_1915",
+        "name": "SEIS DE ENERO DE 1915",
+        "stalls": null,
+        "borough": "ÁLVARO OBREGÓN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_tizapan",
+        "name": "TIZAPÁN",
+        "stalls": null,
+        "borough": "ÁLVARO OBREGÓN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_arenal",
+        "name": "ARENAL",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_azcapotzalco",
+        "name": "AZCAPOTZALCO",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_benito_juarez",
+        "name": "BENITO JUÁREZ",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_claveria",
+        "name": "CLAVERÍA",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_cosmopolita",
+        "name": "COSMOPOLITA",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_jardin_23_de_abril",
+        "name": "JARDÍN 23 DE ABRIL",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_jardin_fortuna_nacional",
+        "name": "JARDÍN FORTUNA NACIONAL",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_laminadores",
+        "name": "LAMINADORES",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_nueva_santa_maria",
+        "name": "NUEVA SANTA MARÍA",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_obrero_popular",
+        "name": "OBRERO POPULAR",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_pantaco",
+        "name": "PANTACO",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_pasteros",
+        "name": "PASTEROS",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_prohogar",
+        "name": "PROHOGAR",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_providencia",
+        "name": "PROVIDENCIA",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_reynosa_tamaulipas",
+        "name": "REYNOSA TAMAULIPAS",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_juan_tlihuaca",
+        "name": "SAN JUAN TLIHUACA",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_santa_lucia",
+        "name": "SANTA LUCÍA",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_tlatilco",
+        "name": "TLATILCO",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_victoria_de_las_democracias",
+        "name": "VICTORIA DE LAS DEMOCRACIAS",
+        "stalls": null,
+        "borough": "AZCAPOTZALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_alamos",
+        "name": "ÁLAMOS",
+        "stalls": null,
+        "borough": "BENITO JUÁREZ",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_independencia",
+        "name": "INDEPENDENCIA",
+        "stalls": null,
+        "borough": "BENITO JUÁREZ",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_la_moderna",
+        "name": "LA MODERNA",
+        "stalls": null,
+        "borough": "BENITO JUÁREZ",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_lago",
+        "name": "LAGO",
+        "stalls": null,
+        "borough": "BENITO JUÁREZ",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_l_azaro_cardenas_del_valle",
+        "name": "L ÁZARO CÁRDENAS (DEL VALLE)",
+        "stalls": null,
+        "borough": "BENITO JUÁREZ",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_mixcoac",
+        "name": "MIXCOAC",
+        "stalls": null,
+        "borough": "BENITO JUÁREZ",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_portales_anexo",
+        "name": "PORTALES ANEXO",
+        "stalls": null,
+        "borough": "BENITO JUÁREZ",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_portales_zona",
+        "name": "PORTALES ZONA",
+        "stalls": null,
+        "borough": "BENITO JUÁREZ",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_postal_anexo",
+        "name": "POSTAL ANEXO",
+        "stalls": null,
+        "borough": "BENITO JUÁREZ",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ah_postal_zona",
+        "name": "AH POSTAL ZONA",
+        "stalls": null,
+        "borough": "BENITO JUÁREZ",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_primero_de_diciembre",
+        "name": "PRIMERO DE DICIEMBRE",
+        "stalls": null,
+        "borough": "BENITO JUÁREZ",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_pedro_de_los_pinos",
+        "name": "SAN PEDRO DE LOS PINOS",
+        "stalls": null,
+        "borough": "BENITO JUÁREZ",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_santa_cruz_atoyac",
+        "name": "SANTA CRUZ ATOYAC",
+        "stalls": null,
+        "borough": "BENITO JUÁREZ",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_santa_maria_ej_nativitas",
+        "name": "SANTA MARÍA EJ NATIVITAS",
+        "stalls": null,
+        "borough": "BENITO JUÁREZ",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_tlacoquemecatl",
+        "name": "TLACOQUEMÉCATL",
+        "stalls": null,
+        "borough": "BENITO JUÁREZ",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_veinticuatro_de_agosto",
+        "name": "VEINTICUATRO DE AGOSTO",
+        "stalls": null,
+        "borough": "BENITO JUÁREZ",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ajusco_moctezuma",
+        "name": "AJUSCO MOCTEZUMA",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ajusco_ontserrat_la_bola",
+        "name": "AJUSCO ONTSERRAT (LA BOLA)",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_avante",
+        "name": "AVANTE",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_artesanal_mexicano",
+        "name": "ARTESANAL MEXICANO",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_carmen_serdan",
+        "name": "CARMEN SERDÁN",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_churubusco",
+        "name": "CHURUBUSCO",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_copilco_el_alto",
+        "name": "COPILCO EL ALTO",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_xi_coyoacan",
+        "name": "XI COYOACÁN",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_educacion_petrolera",
+        "name": "EDUCACIÓN PETROLERA",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_el_reloj_r",
+        "name": "EL RELOJ R",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ros_el_verde",
+        "name": "ROS EL VERDE",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_pl_emiliano_zapata",
+        "name": "PL EMILIANO ZAPATA",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_hermosillo",
+        "name": "HERMOSILLO",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_los_reyes_coyoacan_p",
+        "name": "LOS REYES COYOACÁN P",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_m_argarita_maza_de_uarez",
+        "name": "M ARGARITA MAZA DE UÁREZ",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_prado_churubusco",
+        "name": "PRADO CHURUBUSCO",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ad_olfo_ruiz_cortines_te_la_cruz",
+        "name": "AD OLFO RUÍZ CORTINES TE (LA CRUZ)",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_francisco_culhuacan",
+        "name": "SAN FRANCISCO CULHUACÁN",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_s_anta_ursula_coapa_san_pescaditos",
+        "name": "S ANTA ÚRSULA COAPA SAN (PESCADITOS)",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_s_anto_domingo_las_osas",
+        "name": "S ANTO DOMINGO LAS OSAS",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_s_anto_domingo_los_zih_eyes",
+        "name": "S ANTO DOMINGO LOS ZIH EYES",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_xotepingo",
+        "name": "XOTEPINGO",
+        "stalls": null,
+        "borough": "COYOACÁN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_1_contadero",
+        "name": "1 CONTADERO",
+        "stalls": null,
+        "borough": "CUAJIMALPA DE MORELOS",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_cuajimalpa",
+        "name": "CUAJIMALPA",
+        "stalls": null,
+        "borough": "CUAJIMALPA DE MORELOS",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ca_huizachito",
+        "name": "CA HUIZACHITO",
+        "stalls": null,
+        "borough": "CUAJIMALPA DE MORELOS",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_rosa_torres",
+        "name": "ROSA TORRES",
+        "stalls": null,
+        "borough": "CUAJIMALPA DE MORELOS",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_mateo_tlaltenango",
+        "name": "SAN MATEO TLALTENANGO",
+        "stalls": null,
+        "borough": "CUAJIMALPA DE MORELOS",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ab_elardo_l_rodriguez_coronas",
+        "name": "AB ELARDO L. RODRÍGUEZ (CORONAS)",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_abe_lardo_l_rodriguez_re_na",
+        "name": "ABE LARDO L. RODRÍGUEZ RE NA)",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_be_beethoven",
+        "name": "BE BEETHOVEN",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_bugambilia",
+        "name": "BUGAMBILIA",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_colima",
+        "name": "COLIMA",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_cuauhtemoc",
+        "name": "CUAUHTÉMOC",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_dos_de_abril",
+        "name": "DOS DE ABRIL",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_francisco_sarabia",
+        "name": "FRANCISCO SARABIA",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_hidalgo_anexo",
+        "name": "HIDALGO ANEXO",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_hidalgo_zona",
+        "name": "HIDALGO ZONA",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_insurgentes",
+        "name": "INSURGENTES",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_is_isabel_la_catolica",
+        "name": "IS ISABEL LA CATÓLICA",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_juarez",
+        "name": "JUÁREZ",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_la_dalia",
+        "name": "LA DALIA",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_lagunilla_ropa_telas",
+        "name": "LAGUNILLA ROPA TELAS",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_lagunilla_san_camilito",
+        "name": "LAGUNILLA SAN CAMILITO",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_lagunilla_varios",
+        "name": "LAGUNILLA VARIOS",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_lagunilla_zona",
+        "name": "LAGUNILLA ZONA",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_martinez_de_la_torre_anexo",
+        "name": "MARTÍNEZ DE LA TORRE (ANEXO)",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_martinez_de_la_torre_zona",
+        "name": "MARTÍNEZ DE LA TORRE (ZONA)",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ca_melchor_ocampo",
+        "name": "CA MELCHOR OCAMPO",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_merced_mixcalco",
+        "name": "MERCED MIXCALCO",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_michoacan",
+        "name": "MICHOACÁN",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_morelia",
+        "name": "MORELIA",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_palacio_de_las_flores",
+        "name": "PALACIO DE LAS FLORES",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_pasaje_chapultepec",
+        "name": "PASAJE CHAPULTEPEC",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_paulino_navarro",
+        "name": "PAULINO NAVARRO",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_pequeno_comercio",
+        "name": "PEQUEÑO COMERCIO",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ri_san_cosme",
+        "name": "RI SAN COSME",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_joaquin_anexo",
+        "name": "SAN JOAQUÍN (ANEXO)",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_joaquin_zona_peralvillo",
+        "name": "SAN JOAQUÍN ZONA (PERALVILLO)",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_juan_arcos_de_arc_belen",
+        "name": "SAN JUAN ARCOS DE ARC BELÉN",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_juan_curiosidades",
+        "name": "SAN JUAN CURIOSIDADES",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_juan_ernesto_pugibet",
+        "name": "SAN JUAN ERNESTO PUGIBET",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_lucas",
+        "name": "SAN LUCAS",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_tepito_fierros_viejos",
+        "name": "TEPITO FIERROS VIEJOS",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_tepito_ropa_y_telas_granaditas",
+        "name": "TEPITO ROPA Y TELAS (GRANADITAS)",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_tepito_varios",
+        "name": "TEPITO VARIOS",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_tepito_zona",
+        "name": "TEPITO ZONA",
+        "stalls": null,
+        "borough": "CUAUHTÉMOC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_al_alfredo_robles_dominguez",
+        "name": "AL ALFREDO ROBLES DOMÍNGUEZ",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ampliacion_casas_aleman",
+        "name": "AMPLIACIÓN CASAS ALEMÁN",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ampliacion_gabriel_hernandez",
+        "name": "AMPLIACIÓN GABRIEL HERNÁNDEZ",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_bondojito",
+        "name": "BONDOJITO",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_campestre_aragon",
+        "name": "CAMPESTRE ARAGÓN",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_carrera_lardizabal",
+        "name": "CARRERA LARDIZÁBAL",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_cuatro_de_febrero",
+        "name": "CUATRO DE FEBRERO",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_cuautepec",
+        "name": "CUAUTEPEC",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_av_cuchilla_del_tesoro",
+        "name": "AV CUCHILLA DEL TESORO",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_diez_de_mayo",
+        "name": "DIEZ DE MAYO",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_emiliano_zapata",
+        "name": "EMILIANO ZAPATA",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_estrella",
+        "name": "ESTRELLA",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_fernando_casas_aleman",
+        "name": "FERNANDO CASAS ALEMÁN",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ferroplaza",
+        "name": "FERROPLAZA",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_gabriel_hernandez",
+        "name": "GABRIEL HERNÁNDEZ",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_gertrudis_sanchez",
+        "name": "GERTRUDIS SÁNCHEZ",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_juan_gonzalez_romero",
+        "name": "JUAN GONZÁLEZ ROMERO",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_av_lindavista_vallejo_co_patera_a",
+        "name": "AV LINDAVISTA VALLEJO CO PATERA A.",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_m_aria_esther_zuno_de_fr_echeverria_vi_a",
+        "name": "M ARÍA ESTHER ZUNO DE FR ECHEVERRÍA VI A.",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_magdalena_de_las_linas_nueva_vallejo",
+        "name": "MAGDALENA DE LAS LINAS (NUEVA VALLEJO)",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_martin_carrera",
+        "name": "MARTÍN CARRERA",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_maximino_avila_camacho",
+        "name": "MAXIMINO ÁVILA CAMACHO",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_panamericana",
+        "name": "PANAMERICANA",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_pradera",
+        "name": "PRADERA",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_primero_de_septiembre",
+        "name": "PRIMERO DE SEPTIEMBRE",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_progreso_nacional",
+        "name": "PROGRESO NACIONAL",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_providencia_2",
+        "name": "PROVIDENCIA",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_pueblo_de_san_juan_de_aragon",
+        "name": "PUEBLO DE SAN JUAN DE ARAGÓN",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ramon_corona",
+        "name": "RAMÓN CORONA",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_rio_blanco",
+        "name": "RÍO BLANCO",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_salvador_diaz_miron",
+        "name": "SALVADOR DÍAZ MIRÓN",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_bartolo_atepehuacan",
+        "name": "SAN BARTOLO ATEPEHUACAN",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_felipe_de_jesus",
+        "name": "SAN FELIPE DE JESÚS",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_juan_de_aragon_unidad_2",
+        "name": "SAN JUAN DE ARAGÓN UNIDAD 2",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_juan_de_aragon_unidad_3",
+        "name": "SAN JUAN DE ARAGÓN UNIDAD 3",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_juan_de_aragon_unidad_4_y_5",
+        "name": "SAN JUAN DE ARAGÓN UNIDAD 4 Y 5",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_juan_de_aragon_unidad_6",
+        "name": "SAN JUAN DE ARAGÓN UNIDAD 6",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_juan_de_aragon_unidad_7",
+        "name": "SAN JUAN DE ARAGÓN UNIDAD 7",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_juan_de_aragon_unidad_1",
+        "name": "SAN JUAN DE ARAGÓN UNIDAD 1",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_pedro_el_chico",
+        "name": "SAN PEDRO EL CHICO",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_pedro_zacatenco",
+        "name": "SAN PEDRO ZACATENCO",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_santa_isabel_tola",
+        "name": "SANTA ISABEL TOLA",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_santa_maria_ticoman",
+        "name": "SANTA MARÍA TICOMÁN",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_santa_rosa",
+        "name": "SANTA ROSA",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_tres_estrellas",
+        "name": "TRES ESTRELLAS",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_vasco_de_quiroga",
+        "name": "VASCO DE QUIROGA",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_veinticinco_de_julio_j",
+        "name": "VEINTICINCO DE JULIO J",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_24_de_septiembre",
+        "name": "24 DE SEPTIEMBRE",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_vicente_guerrero_nueva_atzacoalco",
+        "name": "VICENTE GUERRERO (NUEVA ATZACOALCO)",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_villa_comidas_viejo",
+        "name": "VILLA COMIDAS (VIEJO)",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_5_villa_zona_a",
+        "name": "5 VILLA ZONA A",
+        "stalls": null,
+        "borough": "GUSTAVO A. MADERO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_agricola_oriental",
+        "name": "AGRÍCOLA ORIENTAL",
+        "stalls": null,
+        "borough": "IZTACALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_apatlaco",
+        "name": "APATLACO",
+        "stalls": null,
+        "borough": "IZTACALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_bramadero",
+        "name": "BRAMADERO",
+        "stalls": null,
+        "borough": "IZTACALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_e_jidos_de_la_magdalena_mixhuca",
+        "name": "E JIDOS DE LA MAGDALENA MIXHUCA",
+        "stalls": null,
+        "borough": "IZTACALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_el_rodeo",
+        "name": "EL RODEO",
+        "stalls": null,
+        "borough": "IZTACALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_iztacalco",
+        "name": "IZTACALCO",
+        "stalls": null,
+        "borough": "IZTACALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_jose_lopez_portillo",
+        "name": "JOSÉ LÓPEZ PORTILLO",
+        "stalls": null,
+        "borough": "IZTACALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_juventino_rosas",
+        "name": "JUVENTINO ROSAS",
+        "stalls": null,
+        "borough": "IZTACALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_la_cruz",
+        "name": "LA CRUZ",
+        "stalls": null,
+        "borough": "IZTACALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_leandro_valle",
+        "name": "LEANDRO VALLE",
+        "stalls": null,
+        "borough": "IZTACALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_militar_marte",
+        "name": "MILITAR MARTE",
+        "stalls": null,
+        "borough": "IZTACALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_pantitlan_calle_4",
+        "name": "PANTITLÁN CALLE 4",
+        "stalls": null,
+        "borough": "IZTACALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_miguel_iztacalco",
+        "name": "SAN MIGUEL IZTACALCO",
+        "stalls": null,
+        "borough": "IZTACALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_santa_anita",
+        "name": "SANTA ANITA",
+        "stalls": null,
+        "borough": "IZTACALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_tlacotal",
+        "name": "TLACOTAL",
+        "stalls": null,
+        "borough": "IZTACALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_veinticuatro_de_diciembre",
+        "name": "VEINTICUATRO DE DICIEMBRE",
+        "stalls": null,
+        "borough": "IZTACALCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_constituyentes_de_1917",
+        "name": "CONSTITUYENTES DE 1917",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_culhuacan",
+        "name": "CULHUACÁN",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_escuadron_201",
+        "name": "ESCUADRÓN 201",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_francisco_villa",
+        "name": "FRANCISCO VILLA",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_guadalupe_del_moral",
+        "name": "GUADALUPE DEL MORAL",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_iztapalapa",
+        "name": "IZTAPALAPA",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_jacarandas",
+        "name": "JACARANDAS",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_juan_de_la_barrera",
+        "name": "JUAN DE LA BARRERA",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_la_purisima",
+        "name": "LA PURÍSIMA",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_progreso_del_sur",
+        "name": "PROGRESO DEL SUR",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_andres_tetepilco",
+        "name": "SAN ANDRÉS TETEPILCO",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_jose_aculco",
+        "name": "SAN JOSÉ ACULCO",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_juanico",
+        "name": "SAN JUANICO",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_lorenzo_tezonco",
+        "name": "SAN LORENZO TEZONCO",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_lorenzo_xicotencatl",
+        "name": "SAN LORENZO XICOTÉNCATL",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_santa_cruz_meyehualco",
+        "name": "SANTA CRUZ MEYEHUALCO",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_santa_maria_aztahuacan",
+        "name": "SANTA MARÍA AZTAHUACAN",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_sector_popular",
+        "name": "SECTOR POPULAR",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_sifon",
+        "name": "SIFÓN",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_veinticuatro_de_febrero",
+        "name": "VEINTICUATRO DE FEBRERO",
+        "stalls": null,
+        "borough": "IZTAPALAPA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_cerro_del_judio",
+        "name": "CERRO DEL JUDÍO",
+        "stalls": null,
+        "borough": "LA MAGDALENA CONTRERAS",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_contreras_la_cruz",
+        "name": "CONTRERAS LA CRUZ",
+        "stalls": null,
+        "borough": "LA MAGDALENA CONTRERAS",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_m_agdalena_contreras_la_loma",
+        "name": "M AGDALENA CONTRERAS (LA LOMA)",
+        "stalls": null,
+        "borough": "LA MAGDALENA CONTRERAS",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ti_tihuatlan",
+        "name": "TI TIHUATLÁN",
+        "stalls": null,
+        "borough": "LA MAGDALENA CONTRERAS",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_turistico_magdalena",
+        "name": "TURÍSTICO MAGDALENA",
+        "stalls": null,
+        "borough": "LA MAGDALENA CONTRERAS",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_america",
+        "name": "AMÉRICA",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_anahuac_anexo",
+        "name": "ANÁHUAC ANEXO",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_anahuac_zona",
+        "name": "ANÁHUAC ZONA",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_argentina",
+        "name": "ARGENTINA",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_dieciocho_de_marzo",
+        "name": "DIECIOCHO DE MARZO",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_escandon",
+        "name": "ESCANDÓN",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_granada",
+        "name": "GRANADA",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ing_gonzalo_pena_ma_nterola_cartagena",
+        "name": "ING. GONZALO PEÑA MA NTEROLA (CARTAGENA)",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_lago_garda",
+        "name": "LAGO GARDA",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_lago_gascasonica",
+        "name": "LAGO GASCASONICA",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_monte_athos",
+        "name": "MONTE ATHOS",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_plutarco_elias_calles_el_chorrito",
+        "name": "PLUTARCO ELÍAS CALLES (EL CHORRITO)",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_prado_norte",
+        "name": "PRADO NORTE",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_prado_sur",
+        "name": "PRADO SUR",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_isidro_anexo",
+        "name": "SAN ISIDRO ANEXO",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_isidro_zona",
+        "name": "SAN ISIDRO ZONA",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_tacuba",
+        "name": "TACUBA",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_tacubaya",
+        "name": "TACUBAYA",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_zacatito",
+        "name": "ZACATITO",
+        "stalls": null,
+        "borough": "MIGUEL HIDALGO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_benito_juarez_anexo",
+        "name": "BENITO JUÁREZ (ANEXO)",
+        "stalls": null,
+        "borough": "MILPA ALTA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_benito_juarez_milpa_alta",
+        "name": "BENITO JUÁREZ (MILPA ALTA)",
+        "stalls": null,
+        "borough": "MILPA ALTA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_antonio_tecomitl",
+        "name": "SAN ANTONIO TECÓMITL",
+        "stalls": null,
+        "borough": "MILPA ALTA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_bartolome_xicomulco",
+        "name": "SAN BARTOLOMÉ XICOMULCO",
+        "stalls": null,
+        "borough": "MILPA ALTA",
+        "category": "REGIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_pablo_oztotepec",
+        "name": "SAN PABLO OZTOTEPEC",
+        "stalls": null,
+        "borough": "MILPA ALTA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_pedro_atocpan",
+        "name": "SAN PEDRO ATOCPAN",
+        "stalls": null,
+        "borough": "MILPA ALTA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_salvador_cuauhtenco_12_de_octubre",
+        "name": "SAN SALVADOR CUAUHTENCO (12 DE OCTUBRE)",
+        "stalls": null,
+        "borough": "MILPA ALTA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_santa_ana_tlacotenco",
+        "name": "SANTA ANA TLACOTENCO",
+        "stalls": null,
+        "borough": "MILPA ALTA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_villa_milpa_alta_mercado_antojitos",
+        "name": "VILLA MILPA ALTA (MERCADO ANTOJITOS)",
+        "stalls": null,
+        "borough": "MILPA ALTA",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_abraham_del_llano_nopalera",
+        "name": "ABRAHAM DEL LLANO (NOPALERA)",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_f_elipe_astorga_ochoa_agricola_metropolitana",
+        "name": "F ELIPE ASTORGA OCHOA (AGRÍCOLA METROPOLITANA)",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ampliacion_selene",
+        "name": "AMPLIACIÓN SELENE",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_central_de_tlahuac",
+        "name": "CENTRAL DE TLÁHUAC",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_del_mar",
+        "name": "DEL MAR",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_emiliano_zapata_tetelco",
+        "name": "EMILIANO ZAPATA (TETELCO)",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_la_estacion",
+        "name": "LA ESTACIÓN",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_los_olivos",
+        "name": "LOS OLIVOS",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_miguel_hidalgo",
+        "name": "MIGUEL HIDALGO",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_mixquic",
+        "name": "MIXQUIC",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_jose",
+        "name": "SAN JOSÉ",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_juan_ixtayopan",
+        "name": "SAN JUAN IXTAYOPAN",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_santa_catarina",
+        "name": "SANTA CATARINA",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_santa_cecilia",
+        "name": "SANTA CECILIA",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_selene",
+        "name": "SELENE",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_tipico_regional",
+        "name": "TÍPICO REGIONAL",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "REGIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_francisco_tlaltenco",
+        "name": "SAN FRANCISCO TLALTENCO",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_zapotitla",
+        "name": "ZAPOTITLA",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_zapotitlan",
+        "name": "ZAPOTITLÁN",
+        "stalls": null,
+        "borough": "TLÁHUAC",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_artesanias_vasco_de_quiroga",
+        "name": "ARTESANÍAS VASCO DE QUIROGA",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_comidas_huipulco",
+        "name": "COMIDAS HUIPULCO",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_dr_y_gral_jose_gonzalez_varela",
+        "name": "DR. Y GRAL. JOSÉ GONZÁLEZ VARELA",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_flores_san_fernando",
+        "name": "FLORES SAN FERNANDO",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_fuentes_brotantes",
+        "name": "FUENTES BROTANTES",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_hueso_periferico",
+        "name": "HUESO PERIFÉRICO",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_isidro_fabela",
+        "name": "ISIDRO FABELA",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_jo_se_maria_morelos_von",
+        "name": "JO SÉ MARÍA MORELOS VÓN",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_la_paz",
+        "name": "LA PAZ",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_lazaro_cardenas",
+        "name": "LÁZARO CÁRDENAS",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_miguel_hidalgo_2",
+        "name": "MIGUEL HIDALGO",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_mirador",
+        "name": "MIRADOR",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_plaza_mexicana_del_sur",
+        "name": "PLAZA MEXICANA DEL SUR",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_1_san_andres_totoltepec",
+        "name": "1 SAN ANDRÉS TOTOLTEPEC",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_nicolas_totolapan",
+        "name": "SAN NICOLÁS TOTOLAPAN",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_tlalcoligia",
+        "name": "TLALCOLIGIA",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_torres_de_padierna",
+        "name": "TORRES DE PADIERNA",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_veinticuatro_de_febrero_2",
+        "name": "VEINTICUATRO DE FEBRERO",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_veintiuno_de_abril",
+        "name": "VEINTIUNO DE ABRIL",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_villa_coapa",
+        "name": "VILLA COAPA",
+        "stalls": null,
+        "borough": "TLALPAN",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_adolfo_lopez_mateos",
+        "name": "ADOLFO LÓPEZ MATEOS",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_cu_alvaro_obregon",
+        "name": "CU ÁLVARO OBREGÓN",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_aquiles_serdan",
+        "name": "AQUILES SERDÁN",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_arenal_4a_seccion",
+        "name": "ARENAL 4a SECCIÓN",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_aviacion_civil",
+        "name": "AVIACIÓN CIVIL",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_calzado_la_central",
+        "name": "CALZADO LA CENTRAL",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_del_parque",
+        "name": "DEL PARQUE",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_emilio_carranza",
+        "name": "EMILIO CARRANZA",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_federal",
+        "name": "FEDERAL",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ignacio_zaragoza",
+        "name": "IGNACIO ZARAGOZA",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_jamaica_comidas",
+        "name": "JAMAICA COMIDAS",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_gu_jamaica_nuevo",
+        "name": "GU JAMAICA NUEVO",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_jamaica_zona",
+        "name": "JAMAICA ZONA",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_jardin_balbuena",
+        "name": "JARDÍN BALBUENA",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_lic_octavio_senties",
+        "name": "LIC. OCTAVIO SENTIES",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_luis_preciado_de_la_torre",
+        "name": "LUIS PRECIADO DE LA TORRE",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_merced_ampudia",
+        "name": "MERCED AMPUDIA",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_merced_anexo",
+        "name": "MERCED ANEXO",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_merced_banqueton",
+        "name": "MERCED BANQUETÓN",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_cal_merced_comidas",
+        "name": "CAL MERCED COMIDAS",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_merced_flores",
+        "name": "MERCED FLORES",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_merced_nave_menor",
+        "name": "MERCED NAVE MENOR",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_merced_nave_mayor",
+        "name": "MERCED NAVE MAYOR",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ros_merced_paso_a_desnivel",
+        "name": "ROS MERCED PASO A DESNIVEL",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_merced_paso_desnivel_gomez_pedraza",
+        "name": "MERCED PASO DESNIVEL GÓMEZ PEDRAZA",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_minillas",
+        "name": "MINILLAS",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_moctezuma",
+        "name": "MOCTEZUMA",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_morelos",
+        "name": "MORELOS",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_nuevo_san_lazaro",
+        "name": "NUEVO SAN LÁZARO",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_pantitlan_arenal",
+        "name": "PANTITLÁN ARENAL",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_pensador_mexicano",
+        "name": "PENSADOR MEXICANO",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_penon_de_los_banos",
+        "name": "PEÑÓN DE LOS BAÑOS",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_plan_de_ayala_caracol",
+        "name": "PLAN DE AYALA CARACOL",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_puebla",
+        "name": "PUEBLA",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_romero_rubio",
+        "name": "ROMERO RUBIO",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_santa_juanita",
+        "name": "SANTA JUANITA",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_fra_ni_merced_sonora",
+        "name": "FRA NI MERCED SONORA",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_fra_merced_sonora_ni_anexo",
+        "name": "FRA MERCED SONORA NI ANEXO",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_unidad_kennedy",
+        "name": "UNIDAD KENNEDY",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_unidad_rastro",
+        "name": "UNIDAD RASTRO",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_valle_gomez",
+        "name": "VALLE GÓMEZ",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_veinte_de_abril",
+        "name": "VEINTE DE ABRIL",
+        "stalls": null,
+        "borough": "VENUSTIANO CARRANZA",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ahualapa",
+        "name": "AHUALAPA",
+        "stalls": null,
+        "borough": "XOCHIMILCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ampliacion_san_marcos",
+        "name": "AMPLIACIÓN SAN MARCOS",
+        "stalls": null,
+        "borough": "XOCHIMILCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_ampliacion_tepepan",
+        "name": "AMPLIACIÓN TEPEPAN",
+        "stalls": null,
+        "borough": "XOCHIMILCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_guadalupe_i_ramirez",
+        "name": "GUADALUPE I. RAMÍREZ",
+        "stalls": null,
+        "borough": "XOCHIMILCO",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_nativitas",
+        "name": "NATIVITAS",
+        "stalls": null,
+        "borough": "XOCHIMILCO",
+        "category": "ESPECIALIZADO",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_gregorio_atlapulco",
+        "name": "SAN GREGORIO ATLAPULCO",
+        "stalls": null,
+        "borough": "XOCHIMILCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_santa_cruz_acalpixca",
+        "name": "SANTA CRUZ ACALPIXCA",
+        "stalls": null,
+        "borough": "XOCHIMILCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_tierra_nueva",
+        "name": "TIERRA NUEVA",
+        "stalls": null,
+        "borough": "XOCHIMILCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_tulyehualco",
+        "name": "TULYEHUALCO",
+        "stalls": null,
+        "borough": "XOCHIMILCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_xochimilco_anexo",
+        "name": "XOCHIMILCO ANEXO",
+        "stalls": null,
+        "borough": "XOCHIMILCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_xochimilco_zona_xochitl",
+        "name": "XOCHIMILCO ZONA (XÓCHITL)",
+        "stalls": null,
+        "borough": "XOCHIMILCO",
+        "category": "TRADICIONAL",
+        "founded": null
+      },
+      "geometry": null
     }
   ]
 }

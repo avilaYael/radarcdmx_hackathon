@@ -13,10 +13,7 @@ spec:
       {{- include "radarcdmx-web.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      annotations:
-        {{- if .Values.config.create }}
-        checksum/config: {{ .Values.config.content | sha256sum }}
-        {{- end }}
+      annotations:        
         {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
