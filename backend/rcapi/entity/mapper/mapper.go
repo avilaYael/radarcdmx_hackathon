@@ -1,0 +1,247 @@
+package mapper
+
+import (
+	"encoding/json"
+	"fmt"
+	"time"
+
+	"database/sql"
+	"github.com/gofrs/uuid"
+	"github.com/guregu/null/v6"
+	"reflect"
+	"strings"
+)
+
+func JSONToStringSlice(data json.RawMessage) []string {
+	res := []string{}
+	err := json.Unmarshal(data, &res)
+	if err != nil {
+		fmt.Printf("error unmarshaling json to string slice: %v \n", err)
+		return []string{}
+	}
+	return res
+}
+
+func JSONToUUIDSlice(data json.RawMessage) []uuid.UUID {
+	stringSlice := JSONToStringSlice(data)
+
+	res := []uuid.UUID{}
+	for _, s := range stringSlice {
+		res = append(res, uuid.FromStringOrNil(s))
+	}
+	return res
+}
+
+func JSONToIntSlice(data json.RawMessage) []int64 {
+	res := []int64{}
+	err := json.Unmarshal(data, &res)
+	if err != nil {
+		fmt.Printf("error unmarshaling json to int slice: %v \n", err)
+		return []int64{}
+	}
+	return res
+}
+
+func JSONToFloatSlice(data json.RawMessage) []float64 {
+	res := []float64{}
+	err := json.Unmarshal(data, &res)
+	if err != nil {
+		fmt.Printf("error unmarshaling json to float slice: %v \n", err)
+		return []float64{}
+	}
+	return res
+}
+
+func JSONToBooleanSlice(data json.RawMessage) []bool {
+	res := []bool{}
+	err := json.Unmarshal(data, &res)
+	if err != nil {
+		fmt.Printf("error unmarshaling json to boolean slice: %v \n", err)
+		return []bool{}
+	}
+	return res
+}
+
+func JSONToDateSlice(data json.RawMessage) []time.Time {
+	res := []time.Time{}
+	err := json.Unmarshal(data, &res)
+	if err != nil {
+		fmt.Printf("error unmarshaling json to date slice: %v \n", err)
+		return []time.Time{}
+	}
+	return res
+}
+
+func JSONToDatetimeSlice(data json.RawMessage) []time.Time {
+	res := []time.Time{}
+	err := json.Unmarshal(data, &res)
+	if err != nil {
+		fmt.Printf("error unmarshaling json to datetime slice: %v \n", err)
+		return []time.Time{}
+	}
+	return res
+}
+
+func JSONToTimeSlice(data json.RawMessage) []time.Time {
+	res := []time.Time{}
+	err := json.Unmarshal(data, &res)
+	if err != nil {
+		fmt.Printf("error unmarshaling json to datetime slice: %v \n", err)
+		return []time.Time{}
+	}
+	return res
+}
+
+func SliceToJSON(slice interface{}) json.RawMessage {
+	res, err := json.Marshal(slice)
+	if err != nil {
+		fmt.Printf("error marshaling slice to json: %v \n", err)
+		return json.RawMessage{}
+	}
+	return res
+}
+
+func SqlNullStringToStringPtr(s sql.NullString) *string {
+	if s.Valid {
+		return &s.String
+	}
+	return nil
+}
+
+func SqlNullStringToString(s sql.NullString) string {
+	if s.Valid {
+		return s.String
+	}
+	return ""
+}
+
+func StringPtrToSqlNullString(s *string) sql.NullString {
+	if s == nil {
+		return sql.NullString{}
+	}
+	return sql.NullString{
+		String: *s,
+		Valid:  true,
+	}
+}
+
+func StringToSqlNullString(s string) sql.NullString {
+	return sql.NullString{
+		String: s,
+		Valid:  true,
+	}
+}
+
+func StringPtrToString(s *string) string {
+	if s == nil {
+		return ""
+	}
+	return *s
+}
+
+func StringToStringPtr(s string) *string {
+	return &s
+}
+
+func StringToUUIDPtr(in null.String) *uuid.UUID {
+	if !in.Valid {
+		return nil
+	}
+	s := in.String
+	uid := uuid.FromStringOrNil(s)
+	return &uid
+}
+
+func StringToUUID(s string) uuid.UUID {
+	return uuid.FromStringOrNil(s)
+}
+
+func UUIDPtrToNullString(u *uuid.UUID) null.String {
+	if u == nil || u == &uuid.Nil {
+		return null.String{}
+	}
+	return null.NewString(u.String(), true)
+}
+
+// FlexibleUnmarshal preprocesses JSON values to handle common type coercions:
+//   - date-only strings ("2024-11-08") are converted to RFC3339 ("2024-11-08T00:00:00Z")
+//     for time.Time and null.Time fields
+//   - JSON numbers 0/1 are converted to false/true for bool and null.Bool fields
+func FlexibleUnmarshal(data json.RawMessage, target interface{}) error {
+	var rawMap map[string]json.RawMessage
+	if err := json.Unmarshal(data, &rawMap); err != nil {
+		return err
+	}
+
+	rv := reflect.ValueOf(target)
+	if rv.Kind() == reflect.Ptr {
+		rv = rv.Elem()
+	}
+	rt := rv.Type()
+
+	for i := 0; i < rt.NumField(); i++ {
+		sf := rt.Field(i)
+		jsonTag := sf.Tag.Get("json")
+		if jsonTag == "" || jsonTag == "-" {
+			continue
+		}
+		key := strings.SplitN(jsonTag, ",", 2)[0]
+		if key == "" || key == "-" {
+			continue
+		}
+		raw, ok := rawMap[key]
+		if !ok || len(raw) == 0 || string(raw) == "null" {
+			continue
+		}
+
+		ft := sf.Type
+		if ft.Kind() == reflect.Ptr {
+			ft = ft.Elem()
+		}
+
+		s := strings.TrimSpace(string(raw))
+
+		// bool or null.Bool (struct named "Bool"): coerce number 0/1 to false/true
+		if ft.Kind() == reflect.Bool || (ft.Kind() == reflect.Struct && ft.Name() == "Bool") {
+			if s == "0" {
+				rawMap[key] = json.RawMessage("false")
+			} else if s == "1" {
+				rawMap[key] = json.RawMessage("true")
+			}
+			continue
+		}
+
+		// uuid.UUID (array of 16 bytes named "UUID"): coerce empty string to null
+		if ft.Name() == "UUID" && s == `""` {
+			rawMap[key] = json.RawMessage("null")
+			continue
+		}
+
+		// time.Time or null.Time (struct named "Time"): coerce date-only string to RFC3339
+		if ft.Kind() == reflect.Struct && ft.Name() == "Time" {
+			// s is the raw JSON value including quotes, e.g. "\"2024-11-08\""
+			if len(s) == 12 { // exactly "YYYY-MM-DD" with surrounding quotes = 12 chars
+				dateStr := strings.Trim(s, `"`)
+				if len(dateStr) == 10 {
+					rawMap[key] = json.RawMessage(`"` + dateStr + `T00:00:00Z"`)
+				}
+			}
+			continue
+		}
+
+		// Slice fields: coerce a JSON-encoded string (double-encoded) to the actual JSON array/object
+		if ft.Kind() == reflect.Slice && len(s) >= 2 && s[0] == '"' && s[len(s)-1] == '"' {
+			var inner string
+			if err := json.Unmarshal(raw, &inner); err == nil {
+				rawMap[key] = json.RawMessage(inner)
+			}
+			continue
+		}
+	}
+
+	fixed, err := json.Marshal(rawMap)
+	if err != nil {
+		return err
+	}
+	return json.Unmarshal(fixed, target)
+}

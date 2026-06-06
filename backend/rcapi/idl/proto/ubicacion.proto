@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "rcapi/idl/gen";
+option java_multiple_files = true;
+option java_package = "github.com/mklfarha/radarcdmx/backend/rcapi";
+option java_outer_classname = "Ubicacion";
+
+package rcapi;
+
+
+
+message Ubicacion {  
+    string entidad = 1;
+    string municipio = 2;
+    string localidad = 3;
+    int64 manzana = 4;
+    string codigo_postal = 5;
+    string calle = 6;
+    string num_ext = 7;
+    string num_int = 8;
+    double latitud = 9;
+    double longitud = 10;    
+}

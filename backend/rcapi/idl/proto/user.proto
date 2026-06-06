@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "rcapi/idl/gen";
+option java_multiple_files = true;
+option java_package = "github.com/mklfarha/radarcdmx/backend/rcapi";
+option java_outer_classname = "User";
+
+package rcapi;
+
+
+import "enum.proto";
+import "google/protobuf/timestamp.proto";
+
+message User {  
+    string uuid = 1;
+    string name = 2;
+    string lastname = 3;
+    string email = 4;
+    string password = 5;
+    UserStatus status = 6;
+    google.protobuf.Timestamp updated_at = 7;
+    string created_by = 8;
+    string updated_by = 9;
+    google.protobuf.Timestamp created_at = 10;    
+}

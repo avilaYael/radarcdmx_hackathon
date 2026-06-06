@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option go_package = "rcapi/idl/gen";
+option java_multiple_files = true;
+option java_package = "github.com/mklfarha/radarcdmx/backend/rcapi";
+option java_outer_classname = "Establecimiento";
+
+package rcapi;
+
+
+import "contacto.proto";
+import "google/protobuf/timestamp.proto";
+import "ubicacion.proto";
+
+message Establecimiento {  
+    string uuid = 1;
+    int64 id_denue = 2;
+    string clee = 3;
+    string nombre = 4;
+    string razon_social = 5;
+    string per_ocu = 6;
+    int64 codigo_actividad = 7;
+    string nombre_actividad = 8;
+    string uso_de_suelo = 9;
+    string clave_catastral = 10;
+    Contacto contacto = 11;
+    Ubicacion ubicacion = 12;
+    google.protobuf.Timestamp fecha_alta = 13;
+    google.protobuf.Timestamp created_at = 14;
+    google.protobuf.Timestamp updated_at = 15;    
+}

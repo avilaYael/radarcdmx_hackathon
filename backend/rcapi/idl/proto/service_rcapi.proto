@@ -1,0 +1,212 @@
+syntax = "proto3";
+
+option go_package = "rcapi/idl/gen";
+option java_multiple_files = true;
+option java_package = "github.com/mklfarha/radarcdmx/backend/rcapi";
+option java_outer_classname = "Rcapi";
+
+package rcapi;
+
+import "google/protobuf/field_mask.proto";
+
+import "establecimiento.proto";
+
+import "contacto.proto";
+
+import "ubicacion.proto";
+
+import "user.proto";
+
+
+service Rcapi {    
+    
+    // establecimiento start
+    rpc ListEstablecimiento(ListEstablecimientoRequest) returns (ListEstablecimientoResponse){}
+    rpc CreateEstablecimiento(CreateEstablecimientoRequest) returns (Establecimiento) {}
+    rpc UpdateEstablecimiento(UpdateEstablecimientoRequest) returns (Establecimiento) {}
+    // establecimiento end
+    
+    // contacto start
+    rpc ListContacto(ListContactoRequest) returns (ListContactoResponse){}
+    rpc CreateContacto(CreateContactoRequest) returns (Contacto) {}
+    rpc UpdateContacto(UpdateContactoRequest) returns (Contacto) {}
+    // contacto end
+    
+    // ubicacion start
+    rpc ListUbicacion(ListUbicacionRequest) returns (ListUbicacionResponse){}
+    rpc CreateUbicacion(CreateUbicacionRequest) returns (Ubicacion) {}
+    rpc UpdateUbicacion(UpdateUbicacionRequest) returns (Ubicacion) {}
+    // ubicacion end
+    
+    // user start
+    rpc ListUser(ListUserRequest) returns (ListUserResponse){}
+    rpc CreateUser(CreateUserRequest) returns (User) {}
+    rpc UpdateUser(UpdateUserRequest) returns (User) {}
+    // user end
+    
+}
+
+
+// establecimiento start
+message ListEstablecimientoRequest {
+    // The maximum number of records to return. The service may return fewer than
+    // this value.
+    int32 page_size = 1;
+
+    // A page token, received from a previous call.
+    // Provide this to retrieve the subsequent page.    
+    string page_token = 2;
+
+    // https://google.aip.dev/160
+    // https://pkg.go.dev/go.einride.tech/aip@v0.67.1
+    // https://github.com/einride/aip-go    
+    string filter = 3;
+    string order_by = 4;  
+    repeated string include_fields = 5;
+    repeated string exclude_fields = 6;
+    bool skip_cache = 7;
+}
+
+message ListEstablecimientoResponse {
+    repeated Establecimiento establecimiento = 1;
+
+    // A token that can be sent as `page_token` to retrieve the next page.
+    // If this field is omitted, there are no subsequent pages.
+    string next_page_token = 2;
+}
+
+message CreateEstablecimientoRequest {
+    Establecimiento establecimiento = 1;
+}
+
+message UpdateEstablecimientoRequest {
+   
+    Establecimiento establecimiento = 1;
+  
+    // The list of fields to update.
+    google.protobuf.FieldMask update_mask = 2;
+}
+// establecimiento end
+
+// contacto start
+message ListContactoRequest {
+    // The maximum number of records to return. The service may return fewer than
+    // this value.
+    int32 page_size = 1;
+
+    // A page token, received from a previous call.
+    // Provide this to retrieve the subsequent page.    
+    string page_token = 2;
+
+    // https://google.aip.dev/160
+    // https://pkg.go.dev/go.einride.tech/aip@v0.67.1
+    // https://github.com/einride/aip-go    
+    string filter = 3;
+    string order_by = 4;  
+    repeated string include_fields = 5;
+    repeated string exclude_fields = 6;
+    bool skip_cache = 7;
+}
+
+message ListContactoResponse {
+    repeated Contacto contacto = 1;
+
+    // A token that can be sent as `page_token` to retrieve the next page.
+    // If this field is omitted, there are no subsequent pages.
+    string next_page_token = 2;
+}
+
+message CreateContactoRequest {
+    Contacto contacto = 1;
+}
+
+message UpdateContactoRequest {
+   
+    Contacto contacto = 1;
+  
+    // The list of fields to update.
+    google.protobuf.FieldMask update_mask = 2;
+}
+// contacto end
+
+// ubicacion start
+message ListUbicacionRequest {
+    // The maximum number of records to return. The service may return fewer than
+    // this value.
+    int32 page_size = 1;
+
+    // A page token, received from a previous call.
+    // Provide this to retrieve the subsequent page.    
+    string page_token = 2;
+
+    // https://google.aip.dev/160
+    // https://pkg.go.dev/go.einride.tech/aip@v0.67.1
+    // https://github.com/einride/aip-go    
+    string filter = 3;
+    string order_by = 4;  
+    repeated string include_fields = 5;
+    repeated string exclude_fields = 6;
+    bool skip_cache = 7;
+}
+
+message ListUbicacionResponse {
+    repeated Ubicacion ubicacion = 1;
+
+    // A token that can be sent as `page_token` to retrieve the next page.
+    // If this field is omitted, there are no subsequent pages.
+    string next_page_token = 2;
+}
+
+message CreateUbicacionRequest {
+    Ubicacion ubicacion = 1;
+}
+
+message UpdateUbicacionRequest {
+   
+    Ubicacion ubicacion = 1;
+  
+    // The list of fields to update.
+    google.protobuf.FieldMask update_mask = 2;
+}
+// ubicacion end
+
+// user start
+message ListUserRequest {
+    // The maximum number of records to return. The service may return fewer than
+    // this value.
+    int32 page_size = 1;
+
+    // A page token, received from a previous call.
+    // Provide this to retrieve the subsequent page.    
+    string page_token = 2;
+
+    // https://google.aip.dev/160
+    // https://pkg.go.dev/go.einride.tech/aip@v0.67.1
+    // https://github.com/einride/aip-go    
+    string filter = 3;
+    string order_by = 4;  
+    repeated string include_fields = 5;
+    repeated string exclude_fields = 6;
+    bool skip_cache = 7;
+}
+
+message ListUserResponse {
+    repeated User user = 1;
+
+    // A token that can be sent as `page_token` to retrieve the next page.
+    // If this field is omitted, there are no subsequent pages.
+    string next_page_token = 2;
+}
+
+message CreateUserRequest {
+    User user = 1;
+}
+
+message UpdateUserRequest {
+   
+    User user = 1;
+  
+    // The list of fields to update.
+    google.protobuf.FieldMask update_mask = 2;
+}
+// user end

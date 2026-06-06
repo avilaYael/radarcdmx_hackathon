@@ -1,0 +1,91 @@
+package enum
+
+import (
+	"encoding/json"
+	"fmt"
+	"github.com/guregu/null/v6"
+)
+
+//go:generate go run github.com/dmarkham/enumer -type=UserStatus -json
+type UserStatus int64
+
+const (
+	USER_STATUS_INVALID = iota
+	USER_STATUS_ENABLED
+	USER_STATUS_DISABLED
+)
+
+func (e UserStatus) ToInt64() int64 {
+	return int64(e)
+}
+
+func (e UserStatus) ToNullInt() null.Int {
+	return null.NewInt(int64(e), true)
+}
+
+func UserStatusFromString(in string) UserStatus {
+	switch in {
+	case "invalid":
+		return USER_STATUS_INVALID
+	case "enabled":
+		return USER_STATUS_ENABLED
+	case "disabled":
+		return USER_STATUS_DISABLED
+	}
+	return USER_STATUS_INVALID
+}
+
+func UserStatusFromPointerString(in *string) UserStatus {
+	if in == nil {
+		return USER_STATUS_INVALID
+	}
+	return UserStatusFromString(*in)
+}
+
+func (e UserStatus) String() string {
+	switch e {
+	case USER_STATUS_INVALID:
+		return "invalid"
+	case USER_STATUS_ENABLED:
+		return "enabled"
+	case USER_STATUS_DISABLED:
+		return "disabled"
+	}
+
+	return "invalid"
+}
+
+func (e UserStatus) StringPtr() *string {
+	val := e.String()
+	return &val
+}
+
+func UserStatusSliceToJSON(in []UserStatus) json.RawMessage {
+	res := make([]int64, len(in))
+	for i, e := range in {
+		res[i] = int64(e)
+	}
+	jr, err := json.Marshal(res)
+	if err != nil {
+		fmt.Printf("error marshaling UserStatus slice to json: %v", err)
+		return json.RawMessage{}
+	}
+	return jr
+}
+
+func JSONToUserStatusSlice(in json.RawMessage) []UserStatus {
+	res := []int64{}
+	err := json.Unmarshal(in, &res)
+	if err != nil {
+		fmt.Printf("error unmarshaling UserStatus slice to int slice: %v", err)
+		return nil
+	}
+	if len(res) == 0 {
+		return nil
+	}
+	finalRes := []UserStatus{}
+	for _, r := range res {
+		finalRes = append(finalRes, UserStatus(r))
+	}
+	return finalRes
+}

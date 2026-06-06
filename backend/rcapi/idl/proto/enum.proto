@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "rcapi/idl/gen";
+option java_multiple_files = true;
+option java_package = "github.com/mklfarha/radarcdmx/backend/rcapi";
+option java_outer_classname = "Enum";
+
+package rcapi;
+
+
+enum EstablecimientoStatus { 
+    ESTABLECIMIENTO_STATUS_INVALID = 0;
+}
+
+enum UserStatus { 
+    USER_STATUS_INVALID = 0;
+    USER_STATUS_ENABLED = 1;
+    USER_STATUS_DISABLED = 2;
+}

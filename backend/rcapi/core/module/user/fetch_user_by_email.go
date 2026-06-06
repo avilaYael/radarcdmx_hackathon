@@ -1,0 +1,60 @@
+package user
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/mklfarha/radarcdmx/backend/rcapi/core/module/user/types"
+
+	"errors"
+	rcapidb "github.com/mklfarha/radarcdmx/backend/rcapi/core/repository/gen"
+)
+
+func (m *module) FetchUserByEmail(
+	ctx context.Context,
+	req types.FetchUserByEmailRequest,
+	opts ...Option,
+) (types.FetchUserByEmailResponse, error) {
+
+	resolvedOpts := applyAllOptions(opts)
+	cacheKey := fmt.Sprintf("FetchUserByEmail:%v", req)
+	if !resolvedOpts.SkipCache {
+		if cached, found := m.cache.Get(cacheKey); found {
+			return cached.(types.FetchUserByEmailResponse), nil
+		}
+	}
+	v, fetchErr, _ := m.sg.Do(cacheKey, func() (any, error) {
+		if req.OrderBy == "" {
+			models, err := m.repository.Queries.FetchUserByEmail(
+				ctx,
+				rcapidb.FetchUserByEmailParams{
+					Email: req.Email,
+
+					Offset: req.Offset,
+					Limit:  req.Limit,
+				},
+			)
+
+			if err != nil {
+
+				return types.FetchUserByEmailResponse{}, err
+			}
+			return types.FetchUserByEmailResponse{
+				Results: mapModelsToEntities(models),
+			}, nil
+		}
+
+		err := errors.New("could not process request")
+
+		return types.FetchUserByEmailResponse{}, err
+	}) // end sg.Do
+	if fetchErr != nil {
+		return types.FetchUserByEmailResponse{}, fetchErr
+	}
+	result := v.(types.FetchUserByEmailResponse)
+	if !resolvedOpts.SkipCache {
+		m.cache.Set(cacheKey, result, 0)
+	}
+	return result, nil
+
+}

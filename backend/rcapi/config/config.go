@@ -1,0 +1,111 @@
+package config
+
+import (
+	"fmt"
+	"os"
+	"strings"
+
+	"go.uber.org/config"
+	"path"
+)
+
+type DBs []DB
+
+type DB struct {
+	Name     string `yaml:"name"`
+	Host     string `yaml:"host"`
+	Port     string `yaml:"port"`
+	User     string `yaml:"user"`
+	Password string `yaml:"pswd"`
+	Params   string `yaml:"params"`
+	Driver   string `yaml:"driver"`
+}
+
+type AWS struct {
+	Region string `yaml:"region"`
+	KeyID  string `yaml:"key_id"`
+	Secret string `yaml:"secret"`
+	Bucket string `yaml:"bucket"`
+}
+
+func (db DB) Path() string {
+	return fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?%s",
+		db.User,
+		db.Password,
+		db.Host,
+		db.Port,
+		db.Name,
+		db.Params)
+}
+
+func New() (config.Provider, error) {
+	configPath := os.Getenv("CONFIG")
+	envPath := os.Getenv("ENV")
+	return NewWithPathAndEnvironment(configPath, envPath)
+}
+
+func NewWithPathAndEnvironment(p string, env string) (config.Provider, error) {
+	paths := strings.Split(p, ",")
+	if len(paths) == 0 {
+		return nil, fmt.Errorf("no config paths provided")
+	}
+	if paths[0] == "" {
+		return nil, fmt.Errorf("config path is empty")
+	}
+	configFiles := []config.YAMLOption{}
+	for _, pt := range paths {
+		fi, err := os.Stat(pt)
+		if err != nil {
+			fmt.Printf("error reading path: %v, error: %v\n", pt, err)
+			return nil, err
+		}
+		switch mode := fi.Mode(); {
+		case mode.IsDir():
+			if env == "" {
+				env = "base"
+			}
+			// check if the file exists before trying to load it
+			basePath := path.Join(pt, "base.yaml")
+			if _, err := os.Stat(basePath); err == nil {
+				configFiles = append(configFiles, config.File(basePath))
+			} else {
+				fmt.Printf("base config file does not exist: %s\n", basePath)
+			}
+
+			// check if the file exists before trying to load it
+			envPath := path.Join(pt, fmt.Sprintf("%s.yaml", env))
+			if _, err := os.Stat(envPath); err == nil {
+				configFiles = append(configFiles, config.File(envPath))
+			} else {
+				fmt.Printf("env config file does not exist: %s\n", envPath)
+			}
+
+		case mode.IsRegular():
+			if !strings.HasSuffix(pt, ".yaml") && !strings.HasSuffix(pt, ".yml") {
+				fmt.Printf("skipping non-yaml config file: %s\n", pt)
+				continue
+			}
+
+			// check if the file exists before trying to load it
+			if _, err := os.Stat(pt); err != nil {
+				fmt.Printf("config file does not exist: %s\n", pt)
+				continue
+			}
+			configFiles = append(configFiles, config.File(pt))
+		}
+	}
+
+	// print the config files being loaded for debugging purposes
+	fmt.Printf("Loading config files: %v\n", configFiles)
+
+	yaml, err := config.NewYAML(
+		configFiles...,
+	)
+
+	if err != nil {
+		fmt.Printf("error loading config: %v", err)
+		return nil, err
+	}
+
+	return yaml, nil
+}

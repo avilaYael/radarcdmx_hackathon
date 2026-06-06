@@ -1,0 +1,45 @@
+package user
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/mklfarha/radarcdmx/backend/rcapi/core/module/user/types"
+)
+
+func (m *module) FetchUserByUuid(
+	ctx context.Context,
+	req types.FetchUserByUuidRequest,
+	opts ...Option,
+) (types.FetchUserByUuidResponse, error) {
+
+	resolvedOpts := applyAllOptions(opts)
+	cacheKey := fmt.Sprintf("FetchUserByUuid:%v", req)
+	if !resolvedOpts.SkipCache {
+		if cached, found := m.cache.Get(cacheKey); found {
+			return cached.(types.FetchUserByUuidResponse), nil
+		}
+	}
+	v, err, _ := m.sg.Do(cacheKey, func() (any, error) {
+		models, err := m.repository.Queries.FetchUserByUuid(
+			ctx,
+			req.UUID.String(),
+		)
+		if err != nil {
+
+			return types.FetchUserByUuidResponse{}, err
+		}
+		return types.FetchUserByUuidResponse{
+			Results: mapModelsToEntities(models),
+		}, nil
+	})
+	if err != nil {
+		return types.FetchUserByUuidResponse{}, err
+	}
+	result := v.(types.FetchUserByUuidResponse)
+	if !resolvedOpts.SkipCache {
+		m.cache.Set(cacheKey, result, 0)
+	}
+	return result, nil
+
+}

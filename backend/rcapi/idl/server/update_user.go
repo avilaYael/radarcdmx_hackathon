@@ -1,0 +1,76 @@
+package server
+
+import (
+	"context"
+	"errors"
+	usermodule "github.com/mklfarha/radarcdmx/backend/rcapi/core/module/user"
+	"github.com/mklfarha/radarcdmx/backend/rcapi/core/module/user/types"
+	pb "github.com/mklfarha/radarcdmx/backend/rcapi/idl/gen"
+	pbmapper "github.com/mklfarha/radarcdmx/backend/rcapi/idl/mapper"
+
+	"go.einride.tech/aip/fieldmask"
+	"strings"
+)
+
+func (s *server) UpdateUser(ctx context.Context, req *pb.UpdateUserRequest) (*pb.User, error) {
+
+	if req.User.Uuid == "" {
+		return nil, errors.New("please provide a valid UUID to update")
+	}
+
+	err := fieldmask.Validate(req.UpdateMask, req.GetUser())
+	if err != nil {
+
+		return nil, err
+	}
+
+	isFull := fieldmask.IsFullReplacement(req.UpdateMask)
+
+	if !isFull && req.UpdateMask != nil {
+
+		if !strings.Contains(req.UpdateMask.String(), "uuid") {
+			req.UpdateMask.Append(req.GetUser(), "uuid")
+		}
+
+		pkEntity := pbmapper.UserFromProto(req.GetUser())
+		existingRes, err := s.core.User().FetchUserByUuid(ctx,
+			types.FetchUserByUuidRequest{
+				UUID: pkEntity.UUID,
+			},
+			usermodule.WithSkipCache(),
+		)
+		if err != nil {
+
+			return nil, err
+		}
+		if len(existingRes.Results) == 0 {
+			return nil, errors.New("entity not found")
+		}
+
+		merged := pbmapper.UserToProto(existingRes.Results[0])
+		fieldmask.Update(req.UpdateMask, merged, req.GetUser())
+		req = &pb.UpdateUserRequest{User: merged, UpdateMask: req.UpdateMask}
+	}
+
+	res, err := s.core.User().Update(ctx, types.UpsertRequest{
+		User: pbmapper.UserFromProto(req.GetUser()),
+	})
+	if err != nil {
+
+		return nil, err
+	}
+
+	fetchRes, err := s.core.User().FetchUserByUuid(ctx, types.FetchUserByUuidRequest(res), usermodule.WithSkipCache())
+	if err != nil {
+
+		return nil, err
+	}
+
+	if len(fetchRes.Results) == 0 {
+		err := errors.New("error fetching entity")
+
+		return nil, err
+	}
+
+	return pbmapper.UserToProto(fetchRes.Results[0]), nil
+}
