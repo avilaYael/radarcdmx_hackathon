@@ -51,8 +51,6 @@ La información geográfica y económica de la Ciudad de México —establecimie
 | 🔎 | **Búsqueda geoespacial** | Establecimientos por radio, alcaldía, sector (SCIAN), actividad y uso de suelo |
 | ⚖️ | **Dictamen de uso de suelo** | Veredicto automático *compatible / incompatible* del giro contra el uso de suelo, con su razón |
 | 📊 | **Comparador de alcaldías** | Total de establecimientos, empleos estimados y mezcla por sector económico |
-| 📥 | **Carga de datos (CSV)** | El usuario sube su propia capa espacial y la visualiza al instante |
-| 🧾 | **Exporta el reporte** | Descarga del dictamen y los indicadores en JSON |
 
 ## 3. Cómo correrlo
 
