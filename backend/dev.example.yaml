@@ -1,0 +1,25 @@
+# Plantilla de configuración para desarrollo local.
+# Copia este archivo a backend/dev.yaml y ajusta credenciales si es necesario:
+#   cp backend/dev.example.yaml backend/dev.yaml
+#
+# backend/dev.yaml está en .gitignore porque contiene credenciales.
+
+ports:
+  grpc: 6011
+  http: 8080
+
+auth:
+  jwt:
+    key: dev-secret
+
+db:
+  - name: radarcdmx
+    host: 127.0.0.1
+    port: "3306"
+    user: root
+    pswd: radar
+    params: parseTime=true
+    driver: mysql
+
+monitoring:
+  enabled: false
