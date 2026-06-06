@@ -1,0 +1,93 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "zone_santa_fe",
+        "name": "Corredor Santa Fe",
+        "type": "H",
+        "typeLabel": "Habitacional (H-3-40)",
+        "color": "#f59e0b",
+        "description": "Exclusivo para viviendas unifamiliares de hasta 3 niveles. Comercios, bares y oficinas están estrictamente prohibidos.",
+        "allowedSectors": ["Servicios Educativos", "Servicios Médicos"]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-99.275, 19.368],
+          [-99.250, 19.368],
+          [-99.250, 19.352],
+          [-99.275, 19.352],
+          [-99.275, 19.368]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "zone_polanco",
+        "name": "Corredor Polanco",
+        "type": "HC",
+        "typeLabel": "Habitacional con Comercio (HC-4-30)",
+        "color": "#06b6d4",
+        "description": "Uso de suelo mixto. Se permiten viviendas y comercios de bajo impacto (oficinas, restaurantes, tiendas) en plantas bajas. Prohibido industrias pesadas y talleres ruidosos.",
+        "allowedSectors": ["Comercio", "Servicios de Consultoría", "Retail de Alta Gama", "Alimentos", "Servicios"]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-99.208, 19.436],
+          [-99.182, 19.436],
+          [-99.182, 19.423],
+          [-99.208, 19.423],
+          [-99.208, 19.436]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "zone_vallejo",
+        "name": "Zona Industrial Vallejo",
+        "type": "I",
+        "typeLabel": "Industrial y Logística (I-2-15)",
+        "color": "#a855f7",
+        "description": "Destinado a industrias de transformación, logística, talleres mecánicos y bodegas de almacenamiento masivo.",
+        "allowedSectors": ["Manufactura", "Logística y Distribución", "Servicios Industriales", "Almacenaje"]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-99.178, 19.508],
+          [-99.150, 19.508],
+          [-99.150, 19.482],
+          [-99.178, 19.482],
+          [-99.178, 19.508]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "zone_centro",
+        "name": "Centro Histórico",
+        "type": "E",
+        "typeLabel": "Comercial y Equipamiento (E-6-20)",
+        "color": "#10b981",
+        "description": "Zonificación de alta densidad comercial. Comercios mayoristas, minoristas, oficinas de gobierno e infraestructura cultural autorizados.",
+        "allowedSectors": ["Comercio Mayorista", "Importación & Distribución", "Comercio", "Servicios", "Alimentos"]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-99.145, 19.440],
+          [-99.120, 19.440],
+          [-99.120, 19.425],
+          [-99.145, 19.425],
+          [-99.145, 19.440]
+        ]]
+      }
+    }
+  ]
+}

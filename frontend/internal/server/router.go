@@ -1,7 +1,12 @@
 package server
 
 import (
+	"io/fs"
 	"log"
+	"net/http"
+	"os"
+	"path"
+	"strings"
 	"time"
 
 	"github.com/go-chi/chi/v5"
@@ -33,6 +38,43 @@ func NewRouter(p RouterParams) *chi.Mux {
 		p.Logger.Printf("route: %-6s %s", rt.Method(), rt.Pattern())
 		r.Method(rt.Method(), rt.Pattern(), rt)
 	}
+
+	uiFS := os.DirFS("RadarMX-main")
+	uiFileServer := http.FileServer(http.FS(uiFS))
+
+	r.NotFound(func(w http.ResponseWriter, req *http.Request) {
+		if req.Method != http.MethodGet && req.Method != http.MethodHead {
+			http.NotFound(w, req)
+			return
+		}
+
+		if strings.HasPrefix(req.URL.Path, "/api/") || req.URL.Path == "/healthz" {
+			http.NotFound(w, req)
+			return
+		}
+
+		cleanPath := strings.TrimPrefix(path.Clean(req.URL.Path), "/")
+		if cleanPath == "." || cleanPath == "" {
+			cleanPath = "index.html"
+		}
+
+		if _, err := fs.Stat(uiFS, cleanPath); err == nil {
+			clone := req.Clone(req.Context())
+			clone.URL.Path = "/" + cleanPath
+			uiFileServer.ServeHTTP(w, clone)
+			return
+		}
+
+		// SPA fallback for client-side routes that are not real files.
+		if !strings.Contains(cleanPath, ".") {
+			clone := req.Clone(req.Context())
+			clone.URL.Path = "/index.html"
+			uiFileServer.ServeHTTP(w, clone)
+			return
+		}
+
+		http.NotFound(w, req)
+	})
 
 	return r
 }

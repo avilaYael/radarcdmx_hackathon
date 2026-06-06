@@ -1,0 +1,80 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_la_merced",
+        "name": "Mercado de la Merced",
+        "stalls": 3800,
+        "borough": "Venustiano Carranza",
+        "category": "Canasta Básica / Flores",
+        "founded": 1957
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-99.1192, 19.4258]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_san_juan",
+        "name": "Mercado de San Juan (Especialidades)",
+        "stalls": 320,
+        "borough": "Cuauhtémoc",
+        "category": "Carnes Exóticas / Gourmet",
+        "founded": 1955
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-99.1418, 19.4302]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_coyoacan",
+        "name": "Mercado de Coyoacán",
+        "stalls": 450,
+        "borough": "Coyoacán",
+        "category": "Artesanías / Comida Típica",
+        "founded": 1956
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-99.1625, 19.3501]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_jamaica",
+        "name": "Mercado de Jamaica",
+        "stalls": 1150,
+        "borough": "Venustiano Carranza",
+        "category": "Flores y Plantas",
+        "founded": 1957
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-99.1221, 19.4089]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "market_beethoven",
+        "name": "Mercado Beethoven",
+        "stalls": 280,
+        "borough": "Cuauhtémoc",
+        "category": "Canasta Básica",
+        "founded": 1962
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-99.1367, 19.4568]
+      }
+    }
+  ]
+}

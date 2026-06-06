@@ -3,6 +3,8 @@ package handlers
 import (
 	"log"
 	"net/http"
+	"os"
+	"path/filepath"
 )
 
 // HomeHandler serves the landing page.
@@ -19,6 +21,12 @@ func (h *HomeHandler) Method() string  { return http.MethodGet }
 func (h *HomeHandler) Pattern() string { return "/" }
 
 func (h *HomeHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
-	_, _ = w.Write([]byte("radarcdmx — home"))
+	indexPath := filepath.Join("RadarMX-main", "index.html")
+	if _, err := os.Stat(indexPath); err != nil {
+		h.logger.Printf("home index file not found: %v", err)
+		http.Error(w, "frontend asset not found", http.StatusInternalServerError)
+		return
+	}
+
+	http.ServeFile(w, r, indexPath)
 }

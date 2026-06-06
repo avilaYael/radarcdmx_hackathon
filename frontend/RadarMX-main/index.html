@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radar CDMX | SEDECO - Dashboard de Análisis Territorial</title>
+  
+  <!-- Google Fonts: Outfit (main) & JetBrains Mono (for codes/metrics) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- MapLibre GL JS -->
+  <link href="https://unpkg.com/maplibre-gl@4.3.2/dist/maplibre-gl.css" rel="stylesheet" />
+  <script src="https://unpkg.com/maplibre-gl@4.3.2/dist/maplibre-gl.js"></script>
+  
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="./style.css">
+  
+  <!-- Chart.js for beautiful analytics charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Lucide Icons (CDN) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Main Container -->
+  <div class="app-container">
+    
+    <!-- Top Header Navigation -->
+    <header class="main-header glass-card">
+      <div class="logo-area">
+        <div class="logo-icon-container" style="background: none; padding: 0; box-shadow: none; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+          <img src="./ajolotito.jpeg" alt="Ajolotito Logo" style="height: 48px; width: auto; object-fit: contain; border-radius: 8px;">
+        </div>
+        <div class="logo-text">
+          <h1>Radar CDMX</h1>
+          <span>Análisis Territorial & Políticas Económicas - SEDECO</span>
+        </div>
+      </div>
+      
+      <!-- Search Box (Address / ZIP Code Search) -->
+      <div class="search-container">
+        <i data-lucide="search" class="search-icon"></i>
+        <input type="text" id="address-search" placeholder="Buscar calles, mercados o coordenadas en la CDMX..." autocomplete="off">
+        <button id="search-btn" class="btn btn-primary">Buscar</button>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="header-actions">
+        <div class="style-selector">
+          <select id="map-style" class="glass-select">
+            <option value="light" selected>Claro (Recomendado)</option>
+            <option value="dark">Oscuro Premium</option>
+            <option value="streets">Calles Voyager</option>
+          </select>
+        </div>
+        
+        <button id="btn-settings" class="btn-icon glass-card" title="Configuración de Token Mapbox">
+          <i data-lucide="settings"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Map Area (Fills the viewport background) -->
+    <main class="main-content">
+      <div id="map"></div>
+      
+      <!-- CONSOLIDATED LEFT CONTROL PANEL HUD (Floating on the map, left-top) -->
+      <div class="left-hud-panel">
+        
+        <!-- Accordion Item 1: Filtros de Búsqueda -->
+        <div class="hud-section active" id="hud-section-filters">
+          <div class="hud-section-header" onclick="toggleHudSection('filters')">
+            <h4><i data-lucide="filter" class="text-primary"></i> Filtros de Búsqueda</h4>
+            <i data-lucide="chevron-down" class="toggle-icon"></i>
+          </div>
+          
+          <div class="hud-section-content">
+            <div class="filter-group" style="display: flex; flex-direction: column; gap: 0.25rem;">
+              <label for="filter-alcaldia" class="hud-label" style="font-size: 0.65rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; font-weight: 600;">Alcaldía / Municipio</label>
+              <select id="filter-alcaldia" class="glass-select w-full" style="font-size:0.78rem; padding:0.4rem 0.8rem; height:36px; width: 100%;">                
+              </select>
+            </div>
+
+            <div class="filter-group" style="display: flex; flex-direction: column; gap: 0.25rem;">
+              <label for="filter-sector" class="hud-label" style="font-size: 0.65rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; font-weight: 600;">Sector Económico</label>
+              <select id="filter-sector" class="glass-select w-full" style="font-size:0.78rem; padding:0.4rem 0.8rem; height:36px; width: 100%;">                
+              </select>
+            </div>
+            <div id="filter-sector-desc" style="font-size: 0.62rem; color: var(--text-muted); line-height: 1.3; font-style: italic; margin-top: -0.5rem; margin-bottom: 0.2rem; min-height: 28px; border-left: 2px solid var(--border-glass); padding-left: 0.4rem;">
+              Todos los sectores económicos registrados.
+            </div>
+
+            <div class="filter-group" style="display: flex; flex-direction: column; gap: 0.25rem;">
+              <label for="filter-actividad" class="hud-label" style="font-size: 0.65rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; font-weight: 600;">Actividad (Código)</label>
+              <select id="filter-actividad" class="glass-select w-full" style="font-size:0.78rem; padding:0.4rem 0.8rem; height:36px; width: 100%;">
+                <option value="Todos">Todas las Actividades</option>
+              </select>
+            </div>
+            <div id="filter-actividad-desc" style="font-size: 0.62rem; color: var(--text-muted); line-height: 1.3; font-style: italic; margin-top: -0.5rem; margin-bottom: 0.2rem; min-height: 28px; border-left: 2px solid var(--border-glass); padding-left: 0.4rem;">
+              Todas las clases de actividades registradas.
+            </div>
+
+            <div class="filter-group" style="display: flex; flex-direction: column; gap: 0.25rem;">
+              <label for="filter-suelo" class="hud-label" style="font-size: 0.65rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; font-weight: 600;">Uso de Suelo (PDDU)</label>
+              <select id="filter-suelo" class="glass-select w-full" style="font-size:0.78rem; padding:0.4rem 0.8rem; height:36px; width: 100%;">                
+              </select>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- Map Coordinates HUD -->
+      <div class="map-hud-overlay coordinate-hud glass-card">
+        <div class="hud-item">
+          <span class="hud-label">Latitud</span>
+          <span id="hud-lat" class="hud-value mono">19.43260</span>
+        </div>
+        <div class="hud-divider"></div>
+        <div class="hud-item">
+          <span class="hud-label">Longitud</span>
+          <span id="hud-lng" class="hud-value mono">-99.13320</span>
+        </div>
+        <div class="hud-divider"></div>
+        <div class="hud-item">
+          <span class="hud-label">Zoom</span>
+          <span id="hud-zoom" class="hud-value mono">12.0</span>
+        </div>
+      </div>
+
+      <div class="map-instructions-toast glass-card">
+        <i data-lucide="info" class="text-info"></i>
+        <span>Haz clic en un establecimiento del mapa para auditar su uso de suelo.</span>
+      </div>
+
+      <!-- Dashboard Sidebar Panel (Floating Glass Panel) -->
+      <aside class="dashboard-sidebar glass-card" id="dashboard-sidebar">
+        <!-- Close button for mobile views -->
+        <button class="close-sidebar-btn" id="close-sidebar-btn">
+          <i data-lucide="x"></i>
+        </button>
+
+        <!-- Dynamic Content Controller -->
+        <div class="sidebar-scrollable-content">
+          
+          <!-- STATE 1: Empty / Prompt User / Comparative View -->
+          <div id="panel-empty" class="panel-state active">
+            <div class="empty-state-content" style="padding-bottom: 0;">
+              <div class="empty-icon-pulse" style="border: none; background: none; animation: none; width: auto; height: auto;">
+                <img src="./ajolotito.jpeg" alt="Ajolotito CDMX" style="width: 140px; height: auto; object-fit: contain; border-radius: 16px; margin-bottom: 0.5rem; filter: drop-shadow(0 4px 10px rgba(159, 34, 65, 0.15));">
+              </div>
+              <h3>Análisis Territorial CDMX</h3>
+              <p>Radar CDMX consolida datos de mercados, comercios y uso de suelo. Haz clic en sugerencias de corredores o audita comercios directamente en el mapa.</p>
+                            
+            </div>
+
+            <!-- COMPARATOR PANEL INTEGRATED IN HOME VIEW -->
+            <div class="comparison-panel-box">
+              <h4 class="history-title" style="border-top: 1px dashed var(--border-glass); padding-top: 1.2rem; margin-top: 0.5rem;">
+                <i data-lucide="bar-chart-3" class="text-primary"></i>
+                Comparación Territorial de Alcaldías
+              </h4>
+              
+              <div class="comparison-selectors">
+                <div class="select-group">
+                  <label for="compare-a">Alcaldía A</label>
+                  <select id="compare-a" class="glass-select w-full">
+                    <option value="Cuauhtémoc" selected>Cuauhtémoc</option>
+                    <option value="Miguel Hidalgo">Miguel Hidalgo</option>
+                    <option value="Álvaro Obregón">Álvaro Obregón</option>
+                    <option value="Azcapotzalco">Azcapotzalco</option>
+                  </select>
+                </div>
+                
+                <div class="select-group">
+                  <label for="compare-b">Alcaldía B</label>
+                  <select id="compare-b" class="glass-select w-full">
+                    <option value="Cuauhtémoc">Cuauhtémoc</option>
+                    <option value="Miguel Hidalgo" selected>Miguel Hidalgo</option>
+                    <option value="Álvaro Obregón">Álvaro Obregón</option>
+                    <option value="Azcapotzalco">Azcapotzalco</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Comparison Card Grid -->
+              <div class="compare-results-grid">
+                <div class="compare-row">
+                  <div class="compare-col-val" id="comp-val-pop-a">--</div>
+                  <div class="compare-col-lbl">Población</div>
+                  <div class="compare-col-val" id="comp-val-pop-b">--</div>
+                </div>
+                <div class="compare-row">
+                  <div class="compare-col-val" id="comp-val-est-a">--</div>
+                  <div class="compare-col-lbl">Establecimientos</div>
+                  <div class="compare-col-val" id="comp-val-est-b">--</div>
+                </div>
+                <div class="compare-row">
+                  <div class="compare-col-val" id="comp-val-mkt-a">--</div>
+                  <div class="compare-col-lbl">Mercados</div>
+                  <div class="compare-col-val" id="comp-val-mkt-b">--</div>
+                </div>
+                <div class="compare-row">
+                  <div class="compare-col-val" id="comp-val-comp-a">--%</div>
+                  <div class="compare-col-lbl">Cumplimiento SEDUVI</div>
+                  <div class="compare-col-val" id="comp-val-comp-b">--%</div>
+                </div>
+                <div class="compare-row">
+                  <div class="compare-col-val" id="comp-val-emp-a">--</div>
+                  <div class="compare-col-lbl">Trabajadores</div>
+                  <div class="compare-col-val" id="comp-val-emp-b">--</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STATE 2: Loading Analysis -->
+          <div id="panel-loading" class="panel-state">
+            <div class="loading-state-content">
+              <div class="pulse-ring-container">
+                <div class="pulse-ring"></div>
+                <div class="pulse-ring-inner">
+                  <i data-lucide="shield-alert" class="loading-icon"></i>
+                </div>
+              </div>
+              <h3 class="glow-text">Cruzando Datos SEDUVI & DENUE...</h3>
+              <div class="loading-steps">
+                <div class="step-item done" id="step-coords">
+                  <i data-lucide="check-circle" class="step-check"></i>
+                  <span>Calculando coordenadas de predio</span>
+                </div>
+                <div class="step-item pending" id="step-geocoding">
+                  <i data-lucide="loader" class="step-loader animate-spin"></i>
+                  <span>Buscando zona en Catastro SEDUVI</span>
+                </div>
+                <div class="step-item pending" id="step-weather">
+                  <i data-lucide="circle" class="step-dot"></i>
+                  <span>Cruzando actividad comercial (DENUE)</span>
+                </div>
+                <div class="step-item pending" id="step-metrics">
+                  <i data-lucide="circle" class="step-dot"></i>
+                  <span>Evaluando correspondencia de uso de suelo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STATE 3: Report Display (Zoning Compliance Audit) -->
+          <div id="panel-report" class="panel-state">
+            <div class="report-header">
+              
+              <h2 id="report-company-name">Restaurante Masaryk Gourmet</h2>
+              <div class="report-coords-bar mono">
+                <span>CLEE: <strong id="report-company-rfc"></strong></span>
+              </div>
+            </div>
+
+            <!-- SECTION: Establishment Profile -->
+            <section class="report-section">
+              <h3 class="section-title">
+                <i data-lucide="info"></i>
+                Perfil Comercial (DENUE)
+              </h3>
+              <div class="demographics-grid">
+                <div class="demo-card">
+                  <i data-lucide="tag" class="demo-icon"></i>
+                  <div class="demo-info">
+                    <span class="demo-label">Giro Comercial</span>
+                    <span class="demo-value" id="report-sector">Alimentos</span>
+                  </div>
+                </div>
+                <div class="demo-card">
+                  <i data-lucide="users" class="demo-icon"></i>
+                  <div class="demo-info">
+                    <span class="demo-label">Empleados Registrados</span>
+                    <span class="demo-value" id="report-employees">45</span>
+                  </div>
+                </div>
+                <div class="demo-card">
+                  <i data-lucide="calendar" class="demo-icon"></i>
+                  <div class="demo-info">
+                    <span class="demo-label">Año de Registro</span>
+                    <span class="demo-value" id="report-founded">2015</span>
+                  </div>
+                </div>
+                <div class="demo-card">
+                  <i data-lucide="map-pin" class="demo-icon"></i>
+                  <div class="demo-info">
+                    <span class="demo-label">Dirección</span>
+                    <span class="demo-value" id="report-address">—</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- SECTION: Land Use Zoning & Compliance (The SEDECO core) -->
+            <section class="report-section">
+              <h3 class="section-title">
+                <i data-lucide="map"></i>
+                Zonificación de Suelo (PDDU)
+              </h3>
+              
+              <div class="metric-progress-card" style="margin-bottom: 1rem;">
+                <div class="metric-card-header">
+                  <span>Uso de Suelo Coincide con PDDU</span>
+                  <span id="audit-verdict-badge" class="risk-badge badge-low">Cumple</span>
+                </div>
+                <div class="progress-bar-container" style="margin-top: 0.5rem;">
+                  <div class="progress-bar" id="audit-verdict-progress" style="width: 100%"></div>
+                </div>
+              </div>
+
+              <div class="demographics-grid">
+                <div class="demo-card">
+                  <i data-lucide="hash" class="demo-icon"></i>
+                  <div class="demo-info">
+                    <span class="demo-label">Clave Catastral</span>
+                    <span class="demo-value" id="report-zoning-type">HC-4-30</span>
+                  </div>
+                </div>
+                <div class="demo-card">
+                  <i data-lucide="navigation" class="demo-icon"></i>
+                  <div class="demo-info">
+                    <span class="demo-label">Alcaldía</span>
+                    <span class="demo-value" id="report-company-zone">Polanco, Miguel Hidalgo</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="compliance-alerts-list" id="compliance-alerts-list" style="margin-top: 1rem;">
+                <!-- Will be populated dynamically with compliance report cards -->
+              </div>
+            </section>
+
+           
+
+          </div>
+
+          
+
+        </div>
+      </aside>
+    </main>
+
+    <!-- Mapbox API Token Configuration Modal (Glassmorphic Modal Popup) -->
+    <div class="modal-overlay" id="modal-settings">
+      <div class="modal-content glass-card animate-zoom-in">
+        <div class="modal-header">
+          <h3>
+            <i data-lucide="settings" class="text-primary"></i>
+            Configuración de Llave Mapbox
+          </h3>
+          <button id="btn-close-settings" class="modal-close-btn">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>La herramienta utiliza de forma gratuita las capas base vectoriales de **CartoDB** para el prototipo sin token. Si tienes tu propia cuenta de Mapbox, puedes ingresar tu Access Token para activar sus capas oficiales (Calles, Satelital, Terreno 3D).</p>
+          
+          <div class="form-group">
+            <label for="mapbox-token-input">Mapbox Access Token:</label>
+            <input type="password" id="mapbox-token-input" placeholder="pk.eyJ1Ijo..." autocomplete="off">
+            <span class="form-help">Consigue una llave en <a href="https://mapbox.com" target="_blank" rel="noopener">mapbox.com</a>.</span>
+          </div>
+
+          <div class="alert alert-warning">
+            <i data-lucide="alert-triangle"></i>
+            <span>La clave se guarda en tu navegador (`localStorage`) y nunca se comparte fuera de la aplicación.</span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="btn-clear-token" class="btn btn-outline">Limpiar Token</button>
+          <button id="btn-save-token" class="btn btn-primary">Guardar Clave</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript App -->
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>

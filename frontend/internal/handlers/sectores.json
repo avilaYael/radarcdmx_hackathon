@@ -1,82 +1,252 @@
 [
   {
-    "codigo_sector": ["11"],
-    "sector": "Agricultura, cría y explotación de animales, aprovechamiento forestal, pesca y caza"
+    "codigo_sector": [
+      "11"
+    ],
+    "sector": "Agricultura, cría y explotación de animales, aprovechamiento forestal, pesca y caza",
+    "usos_permitidos": [
+      "Producción Rural Agroindustrial",
+      "Habitacional Rural",
+      "Habitacional Rural con Comercio",
+      "Habitacional Rural con Comercio y Servicios",
+      "Habitacional Rural de Baja Densidad",
+      "Preservación Ecológica",
+      "Rescate Ecológico",
+      "Rescate Ecológico y Áreas Verdes",
+      "Área Verde",
+      "Área Verde de Valor Ambiental",
+      "Turístico con Agricultura Intensiva"
+    ]
   },
   {
-    "codigo_sector": ["21"],
-    "sector": "Minería"
+    "codigo_sector": [
+      "21"
+    ],
+    "sector": "Minería",
+    "usos_permitidos": [
+      "Industria"
+    ]
   },
   {
-    "codigo_sector": ["22"],
-    "sector": "Generación, transmisión, distribución y comercialización de energía eléctrica, suministro de agua y de gas natural por ductos al consumidor final"
+    "codigo_sector": [
+      "22"
+    ],
+    "sector": "Generación, transmisión, distribución y comercialización de energía eléctrica, suministro de agua y de gas natural por ductos al consumidor final",
+    "usos_permitidos": [
+      "Equipamiento Urbano e Infraestructura",
+      "Equipamiento de Servicios",
+      "Equipamiento Servicios"
+    ]
   },
   {
-    "codigo_sector": ["23"],
-    "sector": "Construcción"
+    "codigo_sector": [
+      "23"
+    ],
+    "sector": "Construcción",
+    "usos_permitidos": [
+      "Habitacional / Oficinas / Comercio / Servicios",
+      "Habitacional con Oficinas",
+      "Habitacional y Oficinas (Con Comercio En Planta Baja)",
+      "Habitacional y/o Oficinas con Comercio en Planta Baja. y Primer Nivel",
+      "Oficinas Corporativas"
+    ]
   },
   {
-    "codigo_sector": ["31", "32", "33"],
-    "sector": "Industrias manufactureras"
-  },  
-  {
-    "codigo_sector": ["43"],
-    "sector": "Comercio al por mayor"
+    "codigo_sector": [
+      "31",
+      "32",
+      "33"
+    ],
+    "sector": "Industrias manufactureras",
+    "usos_permitidos": [
+      "Industria",
+      "Industria con Comercio"
+    ]
   },
   {
-    "codigo_sector": ["46"],
-    "sector": "Comercio al por menor"
+    "codigo_sector": [
+      "43"
+    ],
+    "sector": "Comercio al por mayor",
+    "usos_permitidos": [
+      "Centro de Barrio",
+      "Habitacional Comercial",
+      "Habitacional con Comercio",
+      "Habitacional con Comercio en Planta Baja",
+      "Habitacional con Comercio y Servicios",
+      "Habitacional / Comercial"
+    ]
   },
   {
-    "codigo_sector": ["48","49"],
-    "sector": "Transportes, correos y almacenamiento"
-  },  
-  {
-    "codigo_sector": ["51"],
-    "sector": "Información en medios masivos"
+    "codigo_sector": [
+      "46"
+    ],
+    "sector": "Comercio al por menor",
+    "usos_permitidos": [
+      "Centro de Barrio",
+      "Habitacional Comercial",
+      "Habitacional con Comercio",
+      "Habitacional con Comercio en Planta Baja",
+      "Habitacional con Comercio y Servicios",
+      "Habitacional / Comercial"
+    ]
   },
   {
-    "codigo_sector": ["52"],
-    "sector": "Servicios financieros y de seguros"
+    "codigo_sector": [
+      "48",
+      "49"
+    ],
+    "sector": "Transportes, correos y almacenamiento",
+    "usos_permitidos": [
+      "Industria",
+      "Industria con Comercio",
+      "Equipamiento Urbano e Infraestructura"
+    ]
   },
   {
-    "codigo_sector": ["53"],
-    "sector": "Servicios inmobiliarios y de alquiler de bienes muebles e intangibles"
+    "codigo_sector": [
+      "51"
+    ],
+    "sector": "Información en medios masivos",
+    "usos_permitidos": [
+      "Oficinas Corporativas",
+      "Habitacional con Oficinas",
+      "Habitacional / Oficinas / Comercio / Servicios",
+      "Habitacional / Oficinas Sin Servicios",
+      "Habitacional / Oficinas sin Servicios"
+    ]
   },
   {
-    "codigo_sector": ["54"],
-    "sector": "Servicios profesionales, científicos y técnicos"
+    "codigo_sector": [
+      "52"
+    ],
+    "sector": "Servicios financieros y de seguros",
+    "usos_permitidos": [
+      "Oficinas Corporativas",
+      "Habitacional con Oficinas",
+      "Habitacional / Oficinas / Comercio / Servicios",
+      "Habitacional / Oficinas Sin Servicios",
+      "Habitacional / Oficinas sin Servicios"
+    ]
   },
   {
-    "codigo_sector": ["55"],
-    "sector": "Dirección y administración de grupos empresariales o corporativos"
+    "codigo_sector": [
+      "53"
+    ],
+    "sector": "Servicios inmobiliarios y de alquiler de bienes muebles e intangibles",
+    "usos_permitidos": [
+      "Oficinas Corporativas",
+      "Habitacional con Oficinas",
+      "Habitacional / Oficinas / Comercio / Servicios"
+    ]
   },
   {
-    "codigo_sector": ["56"],
-    "sector": "Servicios de apoyo a los negocios y manejo de residuos, y servicios de remediación"
+    "codigo_sector": [
+      "54"
+    ],
+    "sector": "Servicios profesionales, científicos y técnicos",
+    "usos_permitidos": [
+      "Oficinas Corporativas",
+      "Habitacional con Oficinas",
+      "Habitacional / Oficinas / Comercio / Servicios"
+    ]
   },
   {
-    "codigo_sector": ["61"],
-    "sector": "Servicios educativos"
+    "codigo_sector": [
+      "55"
+    ],
+    "sector": "Dirección y administración de grupos empresariales o corporativos",
+    "usos_permitidos": [
+      "Oficinas Corporativas"
+    ]
   },
   {
-    "codigo_sector": ["62"],
-    "sector": "Servicios de salud y de asistencia social"
+    "codigo_sector": [
+      "56"
+    ],
+    "sector": "Servicios de apoyo a los negocios y manejo de residuos, y servicios de remediación",
+    "usos_permitidos": [
+      "Oficinas Corporativas",
+      "Habitacional con Oficinas",
+      "Habitacional / Oficinas / Comercio / Servicios"
+    ]
   },
   {
-    "codigo_sector": ["71"],
-    "sector": "Servicios de esparcimiento, culturales y deportivos, y otros servicios recreativos"
+    "codigo_sector": [
+      "61"
+    ],
+    "sector": "Servicios educativos",
+    "usos_permitidos": [
+      "Equipamiento",
+      "Equipamiento Básico",
+      "Equipamiento Público y Privado",
+      "Equipamiento Existente",
+      "Equipamiento de Servicio Existentes"
+    ]
   },
   {
-    "codigo_sector": ["72"],
-    "sector": "Servicios de alojamiento temporal y de preparación de alimentos y bebidas"
+    "codigo_sector": [
+      "62"
+    ],
+    "sector": "Servicios de salud y de asistencia social",
+    "usos_permitidos": [
+      "Equipamiento",
+      "Equipamiento (Para Salud, Cultura y Deporte)",
+      "Equipamiento Público y Privado",
+      "Equipamiento Existente",
+      "Equipamiento de Servicio Existentes"
+    ]
   },
   {
-    "codigo_sector": ["81"],
-    "sector": "Otros servicios excepto actividades gubernamentales"
+    "codigo_sector": [
+      "71"
+    ],
+    "sector": "Servicios de esparcimiento, culturales y deportivos, y otros servicios recreativos",
+    "usos_permitidos": [
+      "Equipamiento (Para Salud, Cultura y Deporte)",
+      "Espacio Abierto",
+      "Área Verde",
+      "Área Verde de Valor Ambiental"
+    ]
   },
   {
-    "codigo_sector": ["93"],
-    "sector": "Actividades legislativas, gubernamentales, de impartición de justicia y de organismos internacionales y extraterritoriales"
+    "codigo_sector": [
+      "72"
+    ],
+    "sector": "Servicios de alojamiento temporal y de preparación de alimentos y bebidas",
+    "usos_permitidos": [
+      "Centro de Barrio",
+      "Habitacional Comercial",
+      "Habitacional con Comercio",
+      "Habitacional con Comercio y Servicios",
+      "Habitacional / Comercial",
+      "Habitacional / Oficinas / Comercio / Servicios"
+    ]
+  },
+  {
+    "codigo_sector": [
+      "81"
+    ],
+    "sector": "Otros servicios excepto actividades gubernamentales",
+    "usos_permitidos": [
+      "Centro de Barrio",
+      "Habitacional Comercial",
+      "Habitacional con Comercio",
+      "Habitacional con Comercio y Servicios",
+      "Habitacional / Comercial",
+      "Habitacional / Oficinas / Comercio / Servicios"
+    ]
+  },
+  {
+    "codigo_sector": [
+      "93"
+    ],
+    "sector": "Actividades legislativas, gubernamentales, de impartición de justicia y de organismos internacionales y extraterritoriales",
+    "usos_permitidos": [
+      "Equipamiento",
+      "Equipamiento Público y Privado",
+      "Equipamiento Urbano e Infraestructura",
+      "Equipamiento Existente"
+    ]
   }
 ]
