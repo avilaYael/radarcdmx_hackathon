@@ -21,8 +21,8 @@ Todo el producto —API REST + interfaz web— lo sirve **un único binario de G
 ## 2. Clonar el repositorio
 
 ```bash
-git clone https://github.com/IsraelGonzalezCruz/Hacton-cdmxV1.git   # 👈 CAMBIAR si el repo se renombra
-cd Hacton-cdmxV1
+git clone https://github.com/mklfarha/radarcdmx  
+cd radarcdmx
 ```
 
 ---

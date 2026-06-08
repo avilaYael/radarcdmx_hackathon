@@ -1,6 +1,7 @@
 <div align="center">
 
-# 🛰️ Radar CDMX
+# 🛰️ Radar CDMX - https://radarcdmx.maykelfarha.com/
+# 👥 Equipo - Axodata
 
 ### Inteligencia territorial y económica para la Ciudad de México
 
@@ -18,14 +19,16 @@ Dashboard de análisis territorial con **indicadores en vivo** y **detección au
 ![Datos](https://img.shields.io/badge/Datos-100%25_p%C3%BAblicos-9F2241)
 ![Estado](https://img.shields.io/badge/estado-funcional_end--to--end-2e7d32)
 
+
+Backend generado usando [nuzur](https://nuzur.com/)
+
 <br>
 
 <!-- ╔══════════════════════════════════════════════════════════════════╗
      ║  👇 CAMBIAR ESTOS 3 LINKS ANTES DE ENVIAR EL FORM (16:00–17:00)  ║
      ╚══════════════════════════════════════════════════════════════════╝ -->
 
-[**🌐 Demo en vivo**](https://CAMBIAR-LINK-DEMO-EN-VIVO) ·
-[**🎥 Video (3 min)**](https://CAMBIAR-LINK-VIDEO) ·
+[**🌐 Demo en vivo**](https://radarcdmx.maykelfarha.com/) ·
 [**⚙️ Guía de instalación →**](SETUP.md)
 
 </div>
