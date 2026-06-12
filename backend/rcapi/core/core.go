@@ -35,7 +35,7 @@ type Params struct {
 	fx.In
 	Provider  config.Provider
 	Lifecycle fx.Lifecycle
-	Logger    *zap.Logger
+	Logger    *zap.Logger `optional:"true"`
 }
 
 func New(params Params) (*Implementation, error) {
@@ -68,10 +68,15 @@ func New(params Params) (*Implementation, error) {
 		})
 	}
 
+	logger := params.Logger
+	if logger == nil {
+		logger = zap.NewNop()
+	}
+
 	return &Implementation{
 		db:         db,
 		repository: repository,
-		logger:     params.Logger,
+		logger:     logger,
 	}, nil
 }
 

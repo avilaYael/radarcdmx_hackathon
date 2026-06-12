@@ -23,7 +23,7 @@ type server struct {
 
 type Params struct {
 	fx.In
-	Logger    *zap.Logger
+	Logger    *zap.Logger `optional:"true"`
 	Lifecycle fx.Lifecycle
 	Core      *core.Implementation
 	Config    config.Provider
@@ -37,6 +37,9 @@ func NewServer(params Params) pb.RcapiServer {
 
 func New(params Params) *grpc.Server {
 	log := params.Logger
+	if log == nil {
+		log = zap.NewNop()
+	}
 	s := grpc.NewServer()
 	params.Lifecycle.Append(fx.Hook{
 		OnStart: func(ctx context.Context) error {
