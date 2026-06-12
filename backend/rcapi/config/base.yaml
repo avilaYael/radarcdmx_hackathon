@@ -4,9 +4,11 @@ ports:
   http: 8080
 
 auth:
-  jwt:
-    key: << Key Here >>
   
+  
+
+
+
 db:
   - name: << Database Name Here>>
     host: << Database Host Here>>

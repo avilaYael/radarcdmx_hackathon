@@ -2,7 +2,7 @@ package user
 
 import (
 	"encoding/json"
-	"fmt"
+	"log"
 
 	"github.com/gofrs/uuid"
 	"github.com/guregu/null/v6"
@@ -47,7 +47,7 @@ func UserFromJSON(data json.RawMessage) User {
 
 	if err := json.Unmarshal(data, &entity); err != nil {
 		if err2 := mapper.FlexibleUnmarshal(data, &entity); err2 != nil {
-			fmt.Printf("flexible unmarshal error UserFromJSON: %v\n", err2)
+			log.Printf("flexible unmarshal error UserFromJSON: %v\n", err2)
 		}
 	}
 	return entity
@@ -69,7 +69,7 @@ func UserSliceFromJSON(data json.RawMessage) []User {
 			for _, raw := range rawSlice {
 				item := User{}
 				if err3 := mapper.FlexibleUnmarshal(raw, &item); err3 != nil {
-					fmt.Printf("flexible unmarshal error UserSliceFromJSON item: %v\n", err3)
+					log.Printf("flexible unmarshal error UserSliceFromJSON item: %v\n", err3)
 				}
 				entity = append(entity, item)
 			}
@@ -81,7 +81,7 @@ func UserSliceFromJSON(data json.RawMessage) []User {
 func (e User) ToJSON() json.RawMessage {
 	res, err := json.Marshal(e)
 	if err != nil {
-		fmt.Printf("marshal error UserToJSON: %v\n", err)
+		log.Printf("marshal error UserToJSON: %v\n", err)
 	}
 	return res
 }
@@ -89,7 +89,7 @@ func (e User) ToJSON() json.RawMessage {
 func UserToJSON(e User) json.RawMessage {
 	res, err := json.Marshal(e)
 	if err != nil {
-		fmt.Printf("marshal error UserToJSON: %v\n", err)
+		log.Printf("marshal error UserToJSON: %v\n", err)
 	}
 	return res
 }
@@ -100,7 +100,7 @@ func UserSliceToJSON(e []User) json.RawMessage {
 	}
 	res, err := json.Marshal(e)
 	if err != nil {
-		fmt.Printf("marshal error UserSliceToJSON: %v\n", err)
+		log.Printf("marshal error UserSliceToJSON: %v\n", err)
 	}
 	return res
 }

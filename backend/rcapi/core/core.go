@@ -12,6 +12,7 @@ import (
 	coretypes "github.com/mklfarha/radarcdmx/backend/rcapi/core/types"
 	"go.uber.org/config"
 	"go.uber.org/fx"
+	"go.uber.org/zap"
 
 	"github.com/mklfarha/radarcdmx/backend/rcapi/core/module/establecimiento"
 
@@ -23,6 +24,7 @@ import (
 type Implementation struct {
 	db         *sql.DB
 	repository *repository.Implementation
+	logger     *zap.Logger
 
 	establecimiento establecimiento.Module
 
@@ -33,6 +35,7 @@ type Params struct {
 	fx.In
 	Provider  config.Provider
 	Lifecycle fx.Lifecycle
+	Logger    *zap.Logger
 }
 
 func New(params Params) (*Implementation, error) {
@@ -68,6 +71,7 @@ func New(params Params) (*Implementation, error) {
 	return &Implementation{
 		db:         db,
 		repository: repository,
+		logger:     params.Logger,
 	}, nil
 }
 
@@ -83,6 +87,7 @@ func (i Implementation) Establecimiento() establecimiento.Module {
 	if i.establecimiento == nil {
 		i.establecimiento = establecimiento.New(coretypes.ModuleParams{
 			Repository: i.repository,
+			Logger:     i.logger,
 		})
 	}
 	return i.establecimiento
@@ -92,6 +97,7 @@ func (i Implementation) User() user.Module {
 	if i.user == nil {
 		i.user = user.New(coretypes.ModuleParams{
 			Repository: i.repository,
+			Logger:     i.logger,
 		})
 	}
 	return i.user

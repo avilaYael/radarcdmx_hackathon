@@ -3,9 +3,6 @@ package server
 import (
 	"context"
 
-	"fmt"
-	"github.com/mklfarha/radarcdmx/backend/rcapi/auth"
-
 	"errors"
 	"slices"
 	"strings"
@@ -16,7 +13,7 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-func AuthUnaryServerInterceptor(auth auth.Interface, exceptions []string) grpc.UnaryServerInterceptor {
+func AuthUnaryServerInterceptor(exceptions []string) grpc.UnaryServerInterceptor {
 
 	return grpc.UnaryServerInterceptor(func(ctx context.Context, req any, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp any, err error) {
 
@@ -27,18 +24,6 @@ func AuthUnaryServerInterceptor(auth auth.Interface, exceptions []string) grpc.U
 		finalExceptions = append(exceptions, finalExceptions...)
 		if slices.Contains(finalExceptions, info.FullMethod) {
 			return handler(ctx, req)
-		}
-
-		token, err := GetAuthorizationToken(ctx)
-		if err != nil {
-
-			return nil, status.Error(codes.Unauthenticated, err.Error())
-		}
-
-		err = auth.HandleToken(ctx, token)
-		if err != nil {
-
-			return nil, status.Error(codes.Unauthenticated, fmt.Sprintf("invalid token %v", err))
 		}
 
 		return handler(ctx, req)

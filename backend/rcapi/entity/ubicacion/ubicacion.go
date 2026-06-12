@@ -2,7 +2,7 @@ package ubicacion
 
 import (
 	"encoding/json"
-	"fmt"
+	"log"
 
 	"github.com/guregu/null/v6"
 
@@ -42,7 +42,7 @@ func UbicacionFromJSON(data json.RawMessage) Ubicacion {
 
 	if err := json.Unmarshal(data, &entity); err != nil {
 		if err2 := mapper.FlexibleUnmarshal(data, &entity); err2 != nil {
-			fmt.Printf("flexible unmarshal error UbicacionFromJSON: %v\n", err2)
+			log.Printf("flexible unmarshal error UbicacionFromJSON: %v\n", err2)
 		}
 	}
 	return entity
@@ -64,7 +64,7 @@ func UbicacionSliceFromJSON(data json.RawMessage) []Ubicacion {
 			for _, raw := range rawSlice {
 				item := Ubicacion{}
 				if err3 := mapper.FlexibleUnmarshal(raw, &item); err3 != nil {
-					fmt.Printf("flexible unmarshal error UbicacionSliceFromJSON item: %v\n", err3)
+					log.Printf("flexible unmarshal error UbicacionSliceFromJSON item: %v\n", err3)
 				}
 				entity = append(entity, item)
 			}
@@ -76,7 +76,7 @@ func UbicacionSliceFromJSON(data json.RawMessage) []Ubicacion {
 func (e Ubicacion) ToJSON() json.RawMessage {
 	res, err := json.Marshal(e)
 	if err != nil {
-		fmt.Printf("marshal error UbicacionToJSON: %v\n", err)
+		log.Printf("marshal error UbicacionToJSON: %v\n", err)
 	}
 	return res
 }
@@ -84,7 +84,7 @@ func (e Ubicacion) ToJSON() json.RawMessage {
 func UbicacionToJSON(e Ubicacion) json.RawMessage {
 	res, err := json.Marshal(e)
 	if err != nil {
-		fmt.Printf("marshal error UbicacionToJSON: %v\n", err)
+		log.Printf("marshal error UbicacionToJSON: %v\n", err)
 	}
 	return res
 }
@@ -95,7 +95,7 @@ func UbicacionSliceToJSON(e []Ubicacion) json.RawMessage {
 	}
 	res, err := json.Marshal(e)
 	if err != nil {
-		fmt.Printf("marshal error UbicacionSliceToJSON: %v\n", err)
+		log.Printf("marshal error UbicacionSliceToJSON: %v\n", err)
 	}
 	return res
 }

@@ -9,8 +9,6 @@ import (
 	"net/http"
 
 	pbserver "github.com/mklfarha/radarcdmx/backend/rcapi/idl/server"
-
-	auth "github.com/mklfarha/radarcdmx/backend/rcapi/auth/jwtserver"
 )
 
 func main() {
@@ -19,8 +17,6 @@ func main() {
 			zap.NewProduction,
 			rcapiconfig.New,
 			core.New,
-
-			auth.New,
 		),
 		fx.Invoke(httpServer),
 

@@ -3,6 +3,7 @@ package server
 import (
 	"context"
 	"fmt"
+	"log"
 	//"encoding/json"
 
 	usermodule "github.com/mklfarha/radarcdmx/backend/rcapi/core/module/user"
@@ -40,7 +41,7 @@ func BuildListUserRequest(ctx context.Context, request *pb.ListUserRequest) (typ
 	/* // enable for debugging
 	if filter.CheckedExpr != nil {
 		b, _ := json.Marshal(filter.CheckedExpr.Expr)
-		fmt.Printf("filtering: %v \n", string(b))
+		log.Printf("filtering: %v \n", string(b))
 	}
 	*/
 
@@ -52,7 +53,7 @@ func BuildListUserRequest(ctx context.Context, request *pb.ListUserRequest) (typ
 	/* // enable for debugging
 	if orderBy.Fields != nil {
 		b, _ := json.Marshal(orderBy.Fields)
-		fmt.Printf("ordering: %v \n", string(b))
+		log.Printf("ordering: %v \n", string(b))
 	}
 	*/
 
@@ -145,7 +146,7 @@ func userDeclarations() *filtering.Declarations {
 		filtering.DeclareIdent("created_at", filtering.TypeTimestamp),
 	)
 	if err != nil {
-		fmt.Printf("error creating declarions:%v", err)
+		log.Printf("error creating declarations: %v", err)
 	}
 	return declarations
 }

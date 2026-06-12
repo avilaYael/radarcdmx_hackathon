@@ -2,8 +2,8 @@ package enum
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/guregu/null/v6"
+	"log"
 )
 
 //go:generate go run github.com/dmarkham/enumer -type=UserStatus -json
@@ -67,7 +67,7 @@ func UserStatusSliceToJSON(in []UserStatus) json.RawMessage {
 	}
 	jr, err := json.Marshal(res)
 	if err != nil {
-		fmt.Printf("error marshaling UserStatus slice to json: %v", err)
+		log.Printf("error marshaling UserStatus slice to json: %v", err)
 		return json.RawMessage{}
 	}
 	return jr
@@ -77,7 +77,7 @@ func JSONToUserStatusSlice(in json.RawMessage) []UserStatus {
 	res := []int64{}
 	err := json.Unmarshal(in, &res)
 	if err != nil {
-		fmt.Printf("error unmarshaling UserStatus slice to int slice: %v", err)
+		log.Printf("error unmarshaling UserStatus slice to int slice: %v", err)
 		return nil
 	}
 	if len(res) == 0 {

@@ -2,7 +2,7 @@ package establecimiento
 
 import (
 	"encoding/json"
-	"fmt"
+	"log"
 
 	"github.com/gofrs/uuid"
 	"github.com/guregu/null/v6"
@@ -53,7 +53,7 @@ func EstablecimientoFromJSON(data json.RawMessage) Establecimiento {
 
 	if err := json.Unmarshal(data, &entity); err != nil {
 		if err2 := mapper.FlexibleUnmarshal(data, &entity); err2 != nil {
-			fmt.Printf("flexible unmarshal error EstablecimientoFromJSON: %v\n", err2)
+			log.Printf("flexible unmarshal error EstablecimientoFromJSON: %v\n", err2)
 		}
 	}
 	return entity
@@ -75,7 +75,7 @@ func EstablecimientoSliceFromJSON(data json.RawMessage) []Establecimiento {
 			for _, raw := range rawSlice {
 				item := Establecimiento{}
 				if err3 := mapper.FlexibleUnmarshal(raw, &item); err3 != nil {
-					fmt.Printf("flexible unmarshal error EstablecimientoSliceFromJSON item: %v\n", err3)
+					log.Printf("flexible unmarshal error EstablecimientoSliceFromJSON item: %v\n", err3)
 				}
 				entity = append(entity, item)
 			}
@@ -87,7 +87,7 @@ func EstablecimientoSliceFromJSON(data json.RawMessage) []Establecimiento {
 func (e Establecimiento) ToJSON() json.RawMessage {
 	res, err := json.Marshal(e)
 	if err != nil {
-		fmt.Printf("marshal error EstablecimientoToJSON: %v\n", err)
+		log.Printf("marshal error EstablecimientoToJSON: %v\n", err)
 	}
 	return res
 }
@@ -95,7 +95,7 @@ func (e Establecimiento) ToJSON() json.RawMessage {
 func EstablecimientoToJSON(e Establecimiento) json.RawMessage {
 	res, err := json.Marshal(e)
 	if err != nil {
-		fmt.Printf("marshal error EstablecimientoToJSON: %v\n", err)
+		log.Printf("marshal error EstablecimientoToJSON: %v\n", err)
 	}
 	return res
 }
@@ -106,7 +106,7 @@ func EstablecimientoSliceToJSON(e []Establecimiento) json.RawMessage {
 	}
 	res, err := json.Marshal(e)
 	if err != nil {
-		fmt.Printf("marshal error EstablecimientoSliceToJSON: %v\n", err)
+		log.Printf("marshal error EstablecimientoSliceToJSON: %v\n", err)
 	}
 	return res
 }

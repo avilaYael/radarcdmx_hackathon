@@ -6,6 +6,7 @@ import (
 	"github.com/mklfarha/radarcdmx/backend/rcapi/core/repository"
 	coretypes "github.com/mklfarha/radarcdmx/backend/rcapi/core/types"
 	gocache "github.com/patrickmn/go-cache"
+	"go.uber.org/zap"
 	"golang.org/x/sync/singleflight"
 	"sync"
 	"time"
@@ -26,11 +27,13 @@ type module struct {
 	sg         singleflight.Group
 	cache      *gocache.Cache
 	repository *repository.Implementation
+	logger     *zap.Logger
 }
 
 func New(params coretypes.ModuleParams) Module {
 	return &module{
 		repository: params.Repository,
+		logger:     params.Logger,
 		cache:      gocache.New(30*time.Second, 5*time.Minute),
 	}
 }

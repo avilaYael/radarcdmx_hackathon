@@ -2,7 +2,7 @@ package contacto
 
 import (
 	"encoding/json"
-	"fmt"
+	"log"
 
 	"github.com/guregu/null/v6"
 
@@ -35,7 +35,7 @@ func ContactoFromJSON(data json.RawMessage) Contacto {
 
 	if err := json.Unmarshal(data, &entity); err != nil {
 		if err2 := mapper.FlexibleUnmarshal(data, &entity); err2 != nil {
-			fmt.Printf("flexible unmarshal error ContactoFromJSON: %v\n", err2)
+			log.Printf("flexible unmarshal error ContactoFromJSON: %v\n", err2)
 		}
 	}
 	return entity
@@ -57,7 +57,7 @@ func ContactoSliceFromJSON(data json.RawMessage) []Contacto {
 			for _, raw := range rawSlice {
 				item := Contacto{}
 				if err3 := mapper.FlexibleUnmarshal(raw, &item); err3 != nil {
-					fmt.Printf("flexible unmarshal error ContactoSliceFromJSON item: %v\n", err3)
+					log.Printf("flexible unmarshal error ContactoSliceFromJSON item: %v\n", err3)
 				}
 				entity = append(entity, item)
 			}
@@ -69,7 +69,7 @@ func ContactoSliceFromJSON(data json.RawMessage) []Contacto {
 func (e Contacto) ToJSON() json.RawMessage {
 	res, err := json.Marshal(e)
 	if err != nil {
-		fmt.Printf("marshal error ContactoToJSON: %v\n", err)
+		log.Printf("marshal error ContactoToJSON: %v\n", err)
 	}
 	return res
 }
@@ -77,7 +77,7 @@ func (e Contacto) ToJSON() json.RawMessage {
 func ContactoToJSON(e Contacto) json.RawMessage {
 	res, err := json.Marshal(e)
 	if err != nil {
-		fmt.Printf("marshal error ContactoToJSON: %v\n", err)
+		log.Printf("marshal error ContactoToJSON: %v\n", err)
 	}
 	return res
 }
@@ -88,7 +88,7 @@ func ContactoSliceToJSON(e []Contacto) json.RawMessage {
 	}
 	res, err := json.Marshal(e)
 	if err != nil {
-		fmt.Printf("marshal error ContactoSliceToJSON: %v\n", err)
+		log.Printf("marshal error ContactoSliceToJSON: %v\n", err)
 	}
 	return res
 }

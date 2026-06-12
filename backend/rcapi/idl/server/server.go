@@ -3,10 +3,9 @@ package server
 import (
 	"context"
 	"fmt"
-	"net"
-
 	"github.com/mklfarha/radarcdmx/backend/rcapi/core"
 	pb "github.com/mklfarha/radarcdmx/backend/rcapi/idl/gen"
+	"net"
 
 	"go.uber.org/config"
 	"go.uber.org/fx"
@@ -15,8 +14,6 @@ import (
 	"google.golang.org/grpc/health"
 	"google.golang.org/grpc/health/grpc_health_v1"
 	"google.golang.org/grpc/reflection"
-
-	"github.com/mklfarha/radarcdmx/backend/rcapi/auth"
 )
 
 type server struct {
@@ -30,8 +27,6 @@ type Params struct {
 	Lifecycle fx.Lifecycle
 	Core      *core.Implementation
 	Config    config.Provider
-
-	Auth auth.Interface
 }
 
 func NewServer(params Params) pb.RcapiServer {
@@ -42,10 +37,7 @@ func NewServer(params Params) pb.RcapiServer {
 
 func New(params Params) *grpc.Server {
 	log := params.Logger
-	s := grpc.NewServer(
-
-	//grpc.UnaryInterceptor(AuthUnaryServerInterceptor(params.Auth, []string{})),
-	)
+	s := grpc.NewServer()
 	params.Lifecycle.Append(fx.Hook{
 		OnStart: func(ctx context.Context) error {
 			// GRPC port from config
