@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `user` (
     `updated_by` CHAR(36) NOT NULL,
     `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`uuid`),
-    UNIQUE INDEX `unique_email` (`email` ASC)
+    UNIQUE INDEX `unique_email` (`email`)
 ) ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `establecimiento` (
