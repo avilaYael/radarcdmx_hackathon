@@ -120,6 +120,9 @@ const elBtnMobileSidebar = document.getElementById('btn-mobile-sidebar');
 const elSearchInput = document.getElementById('search-input');
 const elSearchResultsDropdown = document.getElementById('search-results-dropdown');
 
+// Botón de regresar al dashboard
+const elBtnBackToDashboard = document.getElementById('btn-back-to-dashboard');
+
 let lastAuditData = null; // Guardará el último reporte generado
 
 // --- INICIALIZACIÓN ---
@@ -946,6 +949,25 @@ function registerEventListeners() {
 
   elCloseSidebarBtn?.addEventListener('click', () => {
     elDashboardSidebar.classList.add('collapsed');
+  });
+
+  // Regresar al dashboard general (empty state)
+  elBtnBackToDashboard?.addEventListener('click', () => {
+    switchStatePanel('empty');
+    if (currentMarker) {
+      currentMarker.remove();
+      currentMarker = null;
+    }
+    // Animación para regresar el mapa al zoom y centro original
+    if (map) {
+      map.flyTo({
+        center: [-99.155, 19.420],
+        zoom: 11.8,
+        pitch: 15,
+        essential: true,
+        duration: 1000
+      });
+    }
   });
 
   // Clic en la "X" del panel de filtros móvil para cerrarlo
